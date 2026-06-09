@@ -1,0 +1,2711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!-- ======================================== -->
+<!-- INÍCIO DO DOCUMENTO HTML -->
+<!-- Projeto: SOS Telas Kids - Landing Page -->
+<!-- Idioma: Português (Brasil) -->
+<!-- ======================================== -->
+<head>
+<!-- ======================================== -->
+<!-- SEÇÃO: HEAD - METADADOS E RECURSOS EXTERNOS -->
+<!-- Descrição: Configurações do documento, SEO, fontes e scripts externos -->
+<!-- ======================================== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kit Digital Anti-Telas SOS Telas Kids. Uma resposta pronta quando seu filho pedir o celular. 30 missões, 100 ideias rápidas e sistema completo para crianças de 4 a 10 anos.">
+<title>SOS Telas Kids · Uma resposta para o "Me dá o celular?"</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- ======================================== -->
+<!-- INÍCIO DO CSS - DESIGN SYSTEM COMPLETO -->
+<!-- ======================================== -->
+<style>
+  :root {
+    --bg-primary: #FAFAF7;
+    --bg-secondary: #F5F3EE;
+    --bg-dark: #1D1D1F;
+    --text-primary: #1D1D1F;
+    --text-secondary: #515154;
+    --text-muted: #86868B;
+    --accent-coral: #FF6B47;
+    --accent-coral-dark: #E85533;
+    --accent-blue: #4A90E2;
+    --accent-green: #7FB069;
+    --accent-yellow: #F5B544;
+    --neutral-100: #F5F5F7;
+    --neutral-200: #D2D2D7;
+    --neutral-300: #86868B;
+    --neutral-400: #6E6E73;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.06);
+    --shadow-lg: 0 20px 48px rgba(0,0,0,0.08);
+    --shadow-coral: 0 12px 32px rgba(255,107,71,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* ===================================== */
+  /* APPLE TYPOGRAPHY IDENTITY             */
+  /* Sora = Headlines | Inter = Body       */
+  /* ===================================== */
+  .font-sora {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+  .font-inter {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  }
+
+  /* ===================================== */
+  /* PROGRESS BAR                          */
+  /* ===================================== */
+  .progress-bar {
+    position: fixed; top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-coral), var(--accent-yellow));
+    z-index: 9999; width: 0%;
+    transition: width 0.1s ease-out;
+  }
+
+  /* ===================================== */
+  /* NAVEGAÇÃO GLASS                       */
+  /* ===================================== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(250, 250, 247, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+  }
+  .nav-container {
+    max-width: 1200px; margin: 0 auto;
+    padding: 14px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  /* Logotipo agora é âncora funcional (semântica Apple) */
+  .nav-logo {
+    font-weight: 700; font-size: 17px;
+    letter-spacing: -0.02em; color: var(--text-primary);
+    display: flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  .nav-logo:hover { opacity: 0.7; }
+  .nav-logo-icon {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--accent-coral), var(--accent-yellow));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 14px;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-cta {
+    background: var(--text-primary); color: white !important;
+    padding: 8px 18px; border-radius: 980px;
+    font-size: 13px !important; font-weight: 600 !important;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--accent-coral) !important; transform: translateY(-1px); }
+  @media (max-width: 768px) { .nav-links { display: none; } }
+
+  /* ===================================== */
+  /* HERO SECTION                          */
+  /* ===================================== */
+  .hero {
+    min-height: 100vh; padding: 180px 32px 120px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    background: radial-gradient(ellipse at top, #FFF5F0 0%, var(--bg-primary) 60%);
+  }
+
+  /* ─── Hero elements: opacity:0 controlled exclusively by GSAP ─── */
+  /* CSS animations removed — GSAP owns all motion state here       */
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255,107,71,0.08);
+    border: 1px solid rgba(255,107,71,0.2);
+    border-radius: 980px;
+    font-size: 13px; font-weight: 500; color: var(--accent-coral-dark);
+    margin-bottom: 32px;
+    /* opacity set by GSAP — no CSS animation here */
+    will-change: transform, opacity;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent-coral); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(42px, 6.5vw, 80px);
+    font-weight: 800; letter-spacing: -0.045em; line-height: 1.04;
+    text-align: center; max-width: 960px; margin-bottom: 28px;
+    color: var(--text-primary);
+    /* opacity + transform set by GSAP */
+    will-change: opacity, transform, filter;
+  }
+  /* Accent word: solid color, bold, no gradient (impeccable rule) */
+  .hero h1 .hero-accent {
+    color: var(--accent-coral);
+  }
+  .hero-subtitle {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: clamp(17px, 2vw, 21px);
+    color: var(--text-secondary); text-align: center;
+    max-width: 620px; line-height: 1.65; margin-bottom: 56px;
+    /* opacity + transform set by GSAP */
+    will-change: opacity, transform;
+  }
+  /* hero-ctas and hero-trust: GSAP-only, no CSS animation */
+  .hero-ctas {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 24px;
+    will-change: opacity, transform;
+  }
+  .btn-primary {
+    background: var(--accent-coral); color: white;
+    padding: 16px 32px; border-radius: 980px;
+    text-decoration: none; font-weight: 600; font-size: 16px;
+    box-shadow: var(--shadow-coral);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    border: none; cursor: pointer;
+    /* Always interactive — pointer events never blocked by animation */
+    position: relative; z-index: 1;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(255,107,71,0.35);
+    background: var(--accent-coral-dark);
+  }
+  .btn-secondary {
+    background: transparent; color: var(--text-primary);
+    padding: 16px 32px; border-radius: 980px;
+    text-decoration: none; font-weight: 500; font-size: 16px;
+    border: 1px solid var(--neutral-200);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+    position: relative; z-index: 1;
+  }
+  .btn-secondary:hover { background: var(--neutral-100); border-color: var(--neutral-300); }
+  .hero-trust {
+    display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+    font-size: 13px; color: var(--text-muted);
+    will-change: opacity, transform;
+  }
+  .hero-trust span { display: flex; align-items: center; gap: 6px; }
+  .hero-trust span::before {
+    content: '✓'; color: var(--accent-green); font-weight: 700;
+  }
+
+  /* ===================================== */
+  /* OBJETO HERÓI ISOMÉTRICO               */
+  /* ===================================== */
+  .hero-object {
+    margin-top: 80px; position: relative;
+    width: 100%; max-width: 600px; height: 400px;
+    /* opacity/transform set by GSAP — no CSS animation */
+    will-change: opacity, transform;
+  }
+  .hero-object-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at center, rgba(255,107,71,0.15), transparent 60%);
+    filter: blur(60px);
+  }
+  .iso-container {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    animation: floatHero 6s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes floatHero {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  /* GPU-composited iso-cards: translate3d triggers hardware layer */
+  .iso-card {
+    position: absolute; width: 180px; height: 120px;
+    background: white; border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+    padding: 16px; display: flex; flex-direction: column; gap: 8px;
+    will-change: transform;
+    transform: translate3d(0, 0, 0) rotateY(-20deg) rotateX(30deg) rotateZ(10deg);
+  }
+  /* Composited animation: only transform, triggers GPU layer */
+  .iso-card-1 {
+    top: 20px; left: 5%;
+    background: linear-gradient(135deg, white, var(--bg-secondary));
+    animation: rotateCard1 20s ease-in-out infinite;
+  }
+  .iso-card-2 {
+    top: 40px; right: 5%;
+    background: linear-gradient(135deg, white, #F0F7FF);
+    animation: rotateCard2 25s ease-in-out infinite;
+  }
+  .iso-card-3 {
+    bottom: 30px; left: 10%;
+    background: linear-gradient(135deg, white, #F0FFF0);
+    animation: rotateCard1 22s ease-in-out infinite reverse;
+  }
+  /* Transform-only keyframes: zero layout recalculation */
+  @keyframes rotateCard1 {
+    0%, 100% { transform: translate3d(0, 0, 0) rotateY(-20deg) rotateX(30deg) rotateZ(10deg); }
+    50%       { transform: translate3d(0, -6px, 0) rotateY(-15deg) rotateX(35deg) rotateZ(12deg); }
+  }
+  @keyframes rotateCard2 {
+    0%, 100% { transform: translate3d(0, 0, 0) rotateY(20deg) rotateX(30deg) rotateZ(-10deg); }
+    50%       { transform: translate3d(0, -6px, 0) rotateY(15deg) rotateX(35deg) rotateZ(-8deg); }
+  }
+  .iso-card-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+  .iso-card-1 .iso-card-icon { background: rgba(255,107,71,0.15); }
+  .iso-card-2 .iso-card-icon { background: rgba(74,144,226,0.15); }
+  .iso-card-3 .iso-card-icon { background: rgba(127,176,105,0.15); }
+  .iso-card-title { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .iso-card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.3; }
+  .iso-calendar {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotateY(-15deg) rotateX(25deg);
+    width: 220px; height: 220px;
+    background: white; border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+    padding: 20px;
+    will-change: transform;
+  }
+  .iso-calendar-header {
+    font-size: 11px; font-weight: 700; color: var(--accent-coral);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;
+  }
+  .iso-calendar-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .iso-calendar-day {
+    aspect-ratio: 1; background: var(--neutral-100);
+    border-radius: 6px; position: relative;
+  }
+  .iso-calendar-day.done { background: linear-gradient(135deg, var(--accent-coral), var(--accent-yellow)); }
+  .iso-calendar-day.active { background: var(--accent-blue); animation: pulseDay 2s ease-in-out infinite; }
+  @keyframes pulseDay {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+  .iso-volcano {
+    position: absolute; bottom: 10px; right: 15%;
+    width: 80px; height: 80px;
+    animation: volcanoFloat 4s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes volcanoFloat {
+    0%, 100% { transform: translate3d(0, 0, 0) rotateY(-10deg) rotateX(15deg); }
+    50%       { transform: translate3d(0, -8px, 0) rotateY(-10deg) rotateX(15deg); }
+  }
+  .volcano-body {
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid var(--text-secondary);
+    border-radius: 8px;
+  }
+  .volcano-lava {
+    position: absolute; top: -15px; left: 50%;
+    transform: translateX(-50%);
+    width: 30px; height: 30px;
+    background: radial-gradient(circle, var(--accent-coral), var(--accent-coral-dark));
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255,107,71,0.6);
+    animation: lavaBubble 2s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes lavaBubble {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+  }
+  .hero-shadow {
+    position: absolute; bottom: -20px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 40px;
+    background: radial-gradient(ellipse, rgba(255,107,71,0.2), transparent 70%);
+    filter: blur(20px);
+  }
+  @media (max-width: 768px) {
+    .hero-object { height: 320px; margin-top: 48px; }
+    .iso-card { width: 140px; height: 90px; padding: 12px; }
+    .iso-calendar { width: 160px; height: 160px; padding: 14px; }
+    .iso-card-title { font-size: 11px; }
+    .iso-card-desc { font-size: 10px; }
+  }
+
+  /* ===================================== */
+  /* SEÇÃO GENÉRICA                        */
+  /* ===================================== */
+  section { padding: 160px 32px; max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: 13px; font-weight: 600; color: var(--accent-coral);
+    text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px;
+  }
+  .section-eyebrow.centered { text-align: center; }
+  .section-title {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 800; letter-spacing: -0.045em; line-height: 1.0; margin-bottom: 24px;
+  }
+  .section-subtitle {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--text-secondary); max-width: 600px; line-height: 1.6; margin-bottom: 72px;
+  }
+  .section-subtitle.centered { margin-left: auto; margin-right: auto; }
+
+  /* ===================================== */
+  /* CENA REAL - STORYTELLING              */
+  /* ===================================== */
+  .story {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #F5EFE6 100%);
+    text-align: center; padding: 200px 32px; position: relative;
+  }
+  .story-container { max-width: 720px; margin: 0 auto; }
+
+  /* Story elements: GSAP owns all opacity/transform state */
+  .story-headline {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(28px, 4vw, 46px); font-weight: 700; line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: var(--text-primary); margin-bottom: 48px;
+    will-change: opacity, transform;
+  }
+  .story-body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: 18px; color: var(--text-secondary);
+    line-height: 1.75; margin-bottom: 24px;
+    will-change: opacity, transform;
+  }
+  /* Decorative rule above story headline */
+  .story-rule {
+    width: 40px; height: 3px;
+    background: var(--accent-coral);
+    border-radius: 2px;
+    margin: 0 auto 40px;
+    will-change: transform, opacity;
+  }
+
+  /* ===================================== */
+  /* BENTO GRID                            */
+  /* ===================================== */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 20px; /* harmonic spacing: tight enough to feel cohesive */
+  }
+
+  /* Card base: GPU-only hover (box-shadow + transform only, no layout props) */
+  .bento-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    /* Subtle inset depth: 1px border + inner light glow */
+    border: 1px solid rgba(0,0,0,0.055);
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.04),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+    /* Only transform + box-shadow — zero layout thrashing on hover */
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    /* GSAP controls opacity/y — will-change hints compositor */
+    will-change: opacity, transform;
+  }
+
+  /* Hover: scale up 1.02 + lift shadow — no translateY (avoids reflow) */
+  .bento-card:hover {
+    transform: scale(1.02);
+    box-shadow:
+      0 8px 24px rgba(0,0,0,0.08),
+      0 2px 6px rgba(0,0,0,0.04),
+      inset 0 1px 0 rgba(255,255,255,1);
+  }
+
+  /* Focus-visible: keyboard navigation ring */
+  .bento-card:focus-visible {
+    outline: 2px solid var(--accent-coral);
+    outline-offset: 3px;
+  }
+
+  /* Featured card: warm tint + coral border accent */
+  .bento-card.featured {
+    background: linear-gradient(140deg, #FFF8F5 0%, #FFFFFF 60%);
+    border-color: rgba(255,107,71,0.18);
+    box-shadow:
+      0 2px 8px rgba(255,107,71,0.06),
+      inset 0 1px 0 rgba(255,255,255,0.95);
+  }
+  .bento-card.featured:hover {
+    box-shadow:
+      0 10px 28px rgba(255,107,71,0.12),
+      0 2px 8px rgba(255,107,71,0.06),
+      inset 0 1px 0 rgba(255,255,255,1);
+  }
+
+  .bento-card.span-2 { grid-column: span 2; }
+  .bento-card.row-2  { grid-row: span 2; }
+
+  /* Icon container */
+  .bento-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+  .bento-icon.coral  { background: rgba(255,107,71,0.12); }
+  .bento-icon.blue   { background: rgba(74,144,226,0.12); }
+  .bento-icon.green  { background: rgba(127,176,105,0.12); }
+  .bento-icon.yellow { background: rgba(245,181,68,0.12); }
+
+  .bento-tag {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 8px;
+  }
+  .bento-title {
+    font-size: 17px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.25;
+    margin-bottom: 8px; color: var(--text-primary);
+  }
+  .bento-desc {
+    font-size: 14px; color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Responsive breakpoints */
+  @media (max-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+    }
+    .bento-card.span-2 { grid-column: span 2; }
+    .bento-card.row-2  { grid-row: span 1; } /* row-span collapses gracefully */
+  }
+  @media (max-width: 640px) {
+    .bento-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .bento-card.span-2 { grid-column: span 1; }
+    .bento-card { padding: 22px; }
+  }
+
+  /* ===================================== */
+  /* TRÊS PORTAS                           */
+  /* ===================================== */
+  .doors-section { background: var(--bg-primary); padding: 160px 32px; }
+  .doors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  /* GPU-only hover: scale + box-shadow only — zero layout thrashing */
+  .door {
+    background: white; border-radius: 28px; padding: 40px 32px;
+    border: 1px solid rgba(0,0,0,0.055);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
+    /* Only transform + box-shadow — compositor-only, no reflow */
+    transition:
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative; overflow: hidden;
+    /* GSAP owns opacity/y — will-change pre-promotes compositor layer */
+    will-change: opacity, transform;
+  }
+  /* scale(1.015): barely perceptible lift — readable, premium */
+  .door:hover {
+    transform: scale(1.015);
+    box-shadow:
+      0 12px 32px rgba(0,0,0,0.09),
+      0 2px 8px rgba(0,0,0,0.04),
+      inset 0 1px 0 rgba(255,255,255,1);
+  }
+  .door:focus-visible {
+    outline: 2px solid var(--accent-coral);
+    outline-offset: 3px;
+  }
+  .door-number {
+    font-size: 80px; font-weight: 700; color: transparent;
+    -webkit-text-stroke: 1.5px var(--neutral-200);
+    line-height: 1; margin-bottom: 32px; letter-spacing: -0.05em;
+  }
+  .door:nth-child(1) .door-number { -webkit-text-stroke-color: rgba(255,107,71,0.3); }
+  .door:nth-child(2) .door-number { -webkit-text-stroke-color: rgba(74,144,226,0.3); }
+  .door:nth-child(3) .door-number { -webkit-text-stroke-color: rgba(127,176,105,0.3); }
+  /* h3 for semantic heading hierarchy inside section */
+  .door-title {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px; font-weight: 700; letter-spacing: -0.035em;
+    margin-bottom: 16px; line-height: 1.1;
+    color: var(--text-primary);
+  }
+  .door-example {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-style: italic; font-size: 16px;
+    color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;
+  }
+  .door-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+  .door-tag {
+    font-size: 12px; padding: 4px 10px;
+    background: var(--neutral-100); border-radius: 980px;
+    color: var(--text-secondary); font-weight: 500;
+  }
+  @media (max-width: 900px) { .doors-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+  /* ===================================== */
+  /* SHOWCASE                              */
+  /* ===================================== */
+  .showcase { padding: 160px 0; max-width: none; }
+  .showcase-header { max-width: 1200px; margin: 0 auto 64px; padding: 0 32px; }
+  .showcase-scroll {
+    display: flex; gap: 24px; overflow-x: auto;
+    padding: 8px 32px 32px; scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-coral) var(--neutral-100);
+  }
+  .showcase-scroll::-webkit-scrollbar { height: 8px; }
+  .showcase-scroll::-webkit-scrollbar-track { background: var(--neutral-100); border-radius: 4px; }
+  .showcase-scroll::-webkit-scrollbar-thumb { background: var(--accent-coral); border-radius: 4px; }
+  .mission-card {
+    flex: 0 0 360px; background: white; border-radius: 24px; padding: 32px;
+    border: 1px solid rgba(0,0,0,0.06); scroll-snap-align: start;
+    transition: all 0.4s; cursor: pointer;
+  }
+  .mission-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .mission-category {
+    display: inline-block; padding: 4px 12px; border-radius: 980px;
+    font-size: 12px; font-weight: 600; margin-bottom: 16px;
+  }
+  .mission-category.ciencia { background: rgba(245,181,68,0.15); color: #A07420; }
+  .mission-category.movimento { background: rgba(255,107,71,0.15); color: var(--accent-coral-dark); }
+  .mission-category.construcao { background: rgba(74,144,226,0.15); color: #2A5A92; }
+  .mission-category.agora { background: rgba(127,176,105,0.15); color: #4A7040; }
+  .mission-illust {
+    height: 160px; background: var(--neutral-100); border-radius: 16px;
+    margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+  }
+  .mission-title { font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 10px; }
+  .mission-desc { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
+  .mission-time {
+    font-family: 'SF Mono', 'Monaco', monospace;
+    font-size: 13px; color: var(--text-muted); font-weight: 500;
+  }
+  @media (max-width: 640px) { .mission-card { flex: 0 0 85%; } }
+
+  /* ===================================== */
+  /* TRANQUILIDADE                         */
+  /* ===================================== */
+  .tranquility {
+    background: #F5F0E8; border-radius: 40px; padding: 96px 64px;
+    margin: 0 32px; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .tranquility-quote {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(24px, 3vw, 34px); font-weight: 700; text-align: center;
+    letter-spacing: -0.04em; line-height: 1.1;
+    max-width: 800px; margin: 0 auto 72px;
+  }
+  .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .pillar {
+    background: white; border-radius: 24px; padding: 32px;
+    display: flex; gap: 20px; transition: all 0.3s;
+  }
+  .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .pillar-icon {
+    width: 56px; height: 56px;
+    background: linear-gradient(135deg, #F5F0E8, #EDE7D9);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+  }
+  .pillar-title { font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.03em; line-height: 1.1; }
+  .pillar-desc { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+  @media (max-width: 768px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+    .tranquility { padding: 60px 24px; margin: 0 16px; }
+  }
+
+  /* ===================================== */
+  /* TESTIMONIALS                          */
+  /* ===================================== */
+  @keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  .animate-scroll { animation: scroll linear infinite; }
+  .scroll-speed-1 { animation-duration: 15s; }
+  .scroll-speed-2 { animation-duration: 19s; }
+  .scroll-speed-3 { animation-duration: 17s; }
+  .testimonial-mask {
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  }
+  /* Testimonial cards: GPU-only hover — scale(1.02) only, no translateY */
+  .testimonial-card {
+    /* Only transform + box-shadow: zero layout recalculation on hover */
+    transition:
+      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, box-shadow;
+  }
+  .testimonial-card:hover {
+    transform: scale(1.02);
+    box-shadow:
+      0 16px 40px rgba(0,0,0,0.08),
+      0 4px 10px rgba(0,0,0,0.04);
+  }
+  /* Avatar: neutral shadow ring — no color, minimalista (impeccable rule) */
+  .avatar-ring {
+    transition: box-shadow 0.3s ease;
+    /* Neutral ring matches photo edge, not brand color */
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+  }
+  .testimonial-card:hover .avatar-ring {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  }
+  .testimonials-section {
+    padding: 160px 32px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+  .testimonials-header-wrap {
+    max-width: 540px; margin: 0 auto 64px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .testimonials-pill {
+    border: 1px solid var(--neutral-200);
+    padding: 4px 16px; border-radius: 980px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-secondary);
+    background: rgba(245,245,247,0.5);
+  }
+  .testimonials-h2 {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800; letter-spacing: -0.045em;
+    margin-top: 24px; text-align: center; color: var(--text-primary);
+    line-height: 1.0;
+  }
+  .testimonials-sub {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    text-align: center; margin-top: 24px;
+    color: var(--text-secondary); font-size: 18px;
+    line-height: 1.65; max-width: 480px;
+  }
+  .testimonials-grid {
+    display: flex; justify-content: center; gap: 24px;
+    max-height: 740px; overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  }
+  .testimonial-column {
+    display: flex; flex-direction: column; gap: 24px;
+    flex: 0 0 320px; max-width: 320px;
+  }
+  .testimonial-column ul {
+    display: flex; flex-direction: column; gap: 24px;
+    padding-bottom: 24px; list-style: none; margin: 0;
+  }
+  .testimonial-column li.testimonial-card {
+    padding: 40px; border-radius: 24px;
+    border: 1px solid var(--neutral-200);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+    background: white;
+    cursor: default; user-select: none;
+  }
+  .testimonial-column blockquote p {
+    color: var(--text-secondary); line-height: 1.7;
+    font-size: 15px; margin: 0;
+  }
+  .testimonial-column blockquote footer {
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 24px;
+  }
+  .testimonial-column blockquote footer img {
+    width: 40px; height: 40px; border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 2px var(--neutral-100);
+  }
+  .testimonial-column blockquote footer cite {
+    font-style: normal; font-weight: 600;
+    letter-spacing: -0.01em; line-height: 1.25;
+    font-size: 14px; color: var(--text-primary);
+    display: block;
+  }
+  .testimonial-column blockquote footer span {
+    font-size: 13px; line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--text-muted); margin-top: 2px;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .testimonial-column:nth-child(2),
+    .testimonial-column:nth-child(3) { display: none; }
+  }
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .testimonial-column:nth-child(3) { display: none; }
+  }
+
+  /* ===================================== */
+  /* PRICING SECTION — ALINHADA AO GRID    */
+  /* ===================================== */
+  .pricing-section {
+    padding: 160px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-secondary);
+  }
+  /* Container unificado com max-width: 1200px — igual às demais seções */
+  .pricing-container {
+    padding-left: 32px;
+    padding-right: 32px;
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .pricing-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+    text-align: center;
+    opacity: 0;
+  }
+  .pricing-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255,107,71,0.2);
+    background: rgba(255,107,71,0.08);
+    box-shadow: var(--shadow-sm);
+    color: var(--accent-coral-dark);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .pricing-pill svg {
+    height: 14px;
+    width: 14px;
+    margin-right: 4px;
+  }
+  .pricing-header h2 {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.875rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.0;
+    margin-bottom: 16px;
+    max-width: 42rem;
+    color: var(--text-primary);
+  }
+  @media (min-width: 640px) {
+    .pricing-header h2 { font-size: 2.25rem; }
+  }
+  @media (min-width: 768px) {
+    .pricing-header h2 { font-size: 3rem; }
+  }
+  .pricing-header p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    max-width: 700px;
+    color: var(--text-secondary);
+  }
+  @media (min-width: 768px) {
+    .pricing-header p { font-size: 1.25rem; }
+  }
+
+  .pricing-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--neutral-100);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  .pricing-card-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 768px) {
+    .pricing-card-inner { flex-direction: row; }
+  }
+
+  .pricing-col-left {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--neutral-100);
+  }
+  @media (min-width: 768px) {
+    .pricing-col-left {
+      padding: 32px;
+      width: 50%;
+      border-bottom: 0;
+      border-right: 1px solid var(--neutral-100);
+    }
+  }
+  .pricing-offer-badge {
+    padding: 4px 12px;
+    background: rgba(255,107,71,0.08);
+    border: 1px solid rgba(255,107,71,0.15);
+    color: var(--accent-coral-dark);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 9999px;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .pricing-col-left h3 {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .pricing-col-left .desc {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .pricing-prices {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+  .pricing-price-new {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+  .pricing-price-old {
+    color: var(--text-muted);
+    margin-left: 8px;
+    text-decoration: line-through;
+    font-size: 14px;
+  }
+  .pricing-discount-badge {
+    margin-left: 12px;
+    padding: 2px 8px;
+    border: 1px solid rgba(127,176,105,0.2);
+    background: rgba(127,176,105,0.08);
+    color: var(--accent-green);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+  }
+  .pricing-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .pricing-benefit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .pricing-benefit svg {
+    height: 16px;
+    width: 16px;
+    color: var(--accent-coral);
+    flex-shrink: 0;
+  }
+  .pricing-cta {
+    width: 100%;
+    background-color: var(--accent-coral);
+    color: white;
+    font-weight: 600;
+    padding: 16px 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-coral);
+  }
+  .pricing-cta:hover { background-color: var(--accent-coral-dark); }
+  .pricing-cta svg.cta-cart { height: 20px; width: 20px; }
+  .pricing-cta svg.cta-arrow {
+    height: 16px;
+    width: 16px;
+    transition: transform 0.2s;
+  }
+  .pricing-cta:hover svg.cta-arrow { transform: translateX(4px); }
+
+  .pricing-col-right {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(245,243,238,0.5);
+  }
+  @media (min-width: 768px) {
+    .pricing-col-right {
+      padding: 32px;
+      width: 50%;
+    }
+  }
+  .pricing-col-right h4 {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .pricing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .pricing-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .pricing-feature-check {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    margin-top: 2px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: rgba(255,107,71,0.15);
+    color: var(--accent-coral-dark);
+    flex-shrink: 0;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .pricing-divider {
+    border: 0;
+    border-top: 1px solid var(--neutral-200);
+    margin: 24px 0;
+  }
+  .testimonial-box {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid var(--neutral-100);
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+  }
+  .test-top-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .test-avatar-wrap {
+    height: 36px;
+    width: 36px;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: var(--neutral-200);
+    flex-shrink: 0;
+  }
+  .test-avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .test-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+  .test-role {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .test-stars {
+    margin-left: auto;
+    display: flex;
+    gap: 2px;
+    color: var(--accent-yellow);
+  }
+  .test-stars svg {
+    height: 12px;
+    width: 12px;
+    fill: currentColor;
+  }
+  #test-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.625;
+  }
+
+  /* ===================================== */
+  /* FAQ                                   */
+  /* ===================================== */
+  .faq { padding: 160px 32px; max-width: 800px; margin: 0 auto; }
+  .faq-header { text-align: center; margin-bottom: 64px; }
+  .faq-item { border-bottom: 1px solid var(--neutral-200); padding: 24px 0; }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; font-size: 17px; font-weight: 600;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    letter-spacing: -0.02em; padding: 8px 0;
+    user-select: none; transition: color 0.2s;
+  }
+  .faq-question:hover { color: var(--accent-coral); }
+  .faq-icon {
+    font-size: 24px; color: var(--text-muted);
+    transition: transform 0.3s; font-weight: 300;
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent-coral); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  .faq-item.open .faq-answer { max-height: 300px; padding-top: 16px; }
+  .faq-answer p { font-size: 15px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* ===================================== */
+  /* CRIADOR                               */
+  /* ===================================== */
+  .creator {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #F5F0E8 100%);
+    padding: 160px 32px;
+  }
+  .creator-container {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 64px; align-items: center;
+  }
+  .creator-photo {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--accent-coral), var(--accent-yellow));
+    border-radius: 24px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 48px;
+    box-shadow: var(--shadow-lg);
+  }
+  .creator-eyebrow {
+    font-size: 13px; font-weight: 600; color: var(--accent-coral);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
+  }
+  .creator-title { font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.045em; line-height: 1.05; margin-bottom: 24px; }
+  .creator-text { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; font-size: 16px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+  .creator-quote {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-style: italic;
+    font-size: 17px; color: var(--text-primary);
+    padding: 20px 0 20px 20px;
+    border-left: 3px solid var(--accent-coral);
+    margin: 24px 0; line-height: 1.65;
+  }
+  .creator-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+  .creator-role { font-size: 13px; color: var(--text-muted); }
+  @media (max-width: 768px) {
+    .creator-container { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .creator-photo { max-width: 200px; margin: 0 auto; }
+    .creator-quote {
+      border-left: none;
+      border-top: 3px solid var(--accent-coral);
+      border-bottom: 3px solid var(--accent-coral);
+      padding: 20px 0;
+    }
+  }
+
+  /* ===================================== */
+  /* FOOTER STICKY                         */
+  /* ===================================== */
+  @keyframes float-blur {
+    0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.3; }
+    50% { transform: scale(1.1) translate(10px, -10px); opacity: 0.6; }
+  }
+  .animate-float-blur { animation: float-blur 6s ease-in-out infinite; }
+  .animate-float-blur-delayed { animation: float-blur 7s ease-in-out 1s infinite; }
+  @keyframes pulse-width {
+    0%, 100% { transform: scaleX(1); }
+    50% { transform: scaleX(1.2); }
+  }
+  .animate-pulse-width { animation: pulse-width 2s ease-in-out infinite; }
+
+  .footer-sticky-container {
+    position: relative;
+    height: 70vh;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
+  }
+  .footer-sticky-inner {
+    position: relative;
+    height: calc(100vh + 70vh);
+    top: -100vh;
+  }
+  .footer-sticky-content {
+    height: 70vh;
+    position: sticky;
+    top: calc(100vh - 70vh);
+  }
+  .footer-inner {
+    background: linear-gradient(to bottom right, white, #F5F3EE, rgba(255,255,255,0.9));
+    padding: 48px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer-bg-blur-1 {
+    position: absolute; top: 0; right: 0;
+    width: 384px; height: 384px;
+    background: rgba(255, 107, 71, 0.05);
+    border-radius: 50%;
+    filter: blur(64px);
+    animation: float-blur 6s ease-in-out infinite;
+  }
+  .footer-bg-blur-2 {
+    position: absolute; bottom: 0; left: 0;
+    width: 384px; height: 384px;
+    background: rgba(74, 144, 226, 0.05);
+    border-radius: 50%;
+    filter: blur(64px);
+    animation: float-blur 7s ease-in-out 1s infinite;
+  }
+  .footer-nav { position: relative; z-index: 10; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 80px;
+  }
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-col h3 {
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--neutral-200);
+    padding-bottom: 4px;
+    transition: color 0.3s;
+  }
+  .footer-col h3:hover { color: var(--text-primary); }
+  .footer-col a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 0;
+    transition: color 0.2s;
+    position: relative;
+    display: inline-block;
+  }
+  .footer-col a:hover { color: var(--text-primary); }
+  .footer-col a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent-coral);
+    width: 0;
+    transition: width 0.3s ease;
+  }
+  .footer-col a:hover::after { width: 100%; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 10;
+    gap: 24px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .footer-left { flex: 1; min-width: 280px; }
+  .footer-tagline {
+    font-family: 'New York', Georgia, serif;
+    font-size: 8vw;
+    line-height: 0.8;
+    letter-spacing: -0.03em;
+    background: linear-gradient(to right, var(--text-primary), var(--text-muted), rgba(29,29,31,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: default;
+  }
+  .footer-desc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    max-width: 480px;
+  }
+  .footer-desc .pulse-line {
+    width: 32px;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent-coral), var(--accent-blue));
+    flex-shrink: 0;
+    animation: pulse-width 2s ease-in-out infinite;
+    transform-origin: left;
+  }
+  .footer-desc p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+  }
+  .footer-desc p:hover { color: var(--text-primary); }
+  .footer-right { text-align: right; }
+  .footer-copyright {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    transition: color 0.3s;
+  }
+  .footer-copyright:hover { color: var(--text-primary); }
+  .footer-socials { display: flex; gap: 12px; justify-content: flex-end; }
+  .footer-social {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--neutral-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .footer-social span {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+  }
+  .footer-social:hover {
+    background: linear-gradient(to right, var(--accent-coral), var(--accent-blue));
+  }
+  .footer-social:hover span { color: white; }
+
+  @media (max-width: 900px) {
+    .footer-inner { padding: 24px; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .footer-tagline { font-size: 10vw; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-right { text-align: left; }
+    .footer-socials { justify-content: flex-start; }
+    .footer-bg-blur-1, .footer-bg-blur-2 { width: 192px; height: 192px; }
+  }
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+<!-- ======================================== -->
+<!-- FIM DO CSS - DESIGN SYSTEM COMPLETO -->
+<!-- ======================================== -->
+</head>
+<!-- ======================================== -->
+<!-- INÍCIO DO BODY - CONTEÚDO VISÍVEL -->
+<!-- ======================================== -->
+<body>
+
+<!-- ======================================== -->
+<!-- SEÇÃO: PROGRESS BAR -->
+<!-- Descrição: Barra de progresso de scroll fixa no topo -->
+<!-- ID: #progressBar -->
+<!-- ======================================== -->
+<div class="progress-bar" id="progressBar"></div>
+<!-- FIM SEÇÃO: PROGRESS BAR -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: NAVEGAÇÃO PRINCIPAL (NAV) -->
+<!-- Descrição: Menu fixo no topo com efeito glass, logo e links de navegação -->
+<!-- Classes: nav, nav-container, nav-logo, nav-links, nav-cta -->
+<!-- Links: #kit, #metodo, #pricing, #faq, Hotmart (checkout) -->
+<!-- ======================================== -->
+<nav>
+  <div class="nav-container">
+    <!-- Logotipo agora é âncora funcional para o topo -->
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">S</div>
+      SOS Telas Kids
+    </a>
+    <ul class="nav-links">
+      <li><a href="#kit">Kit</a></li>
+      <li><a href="#metodo">Como funciona</a></li>
+      <li><a href="#pricing">Oferta</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://pay.hotmart.com/M105920942X?bid=1780934451223" class="nav-cta">Quero começar</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- FIM SEÇÃO: NAVEGAÇÃO PRINCIPAL (NAV) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: HERO (DOBRA PRINCIPAL) -->
+<!-- Descrição: Primeira dobra da página com título, subtítulo, CTAs e objeto 3D isométrico -->
+<!-- Classes: hero, hero-badge, hero-ctas, btn-primary, btn-secondary, hero-trust, hero-object -->
+<!-- Elementos 3D: iso-container, iso-card (3 cards), iso-calendar, iso-volcano -->
+<!-- ======================================== -->
+<section class="hero" aria-label="Apresentação do SOS Telas Kids">
+  <!-- Hero badge -->
+  <div class="hero-badge" aria-hidden="true">Kit digital anti-telas · 4 a 10 anos</div>
+
+  <!-- h1: solid accent color, no gradient text (impeccable rule) -->
+  <h1>
+    Transforme o <span class="hero-accent">"Me dá o celular?"</span><br>
+    em uma missão difícil de recusar.
+  </h1>
+
+  <p class="hero-subtitle">Um kit digital completo para pais que precisam de alternativas prontas, rápidas e sem bagunça para tirar as crianças das telas hoje mesmo.</p>
+
+  <!-- CTAs: z-index:1 ensures they're always clickable during animation -->
+  <div class="hero-ctas" role="group" aria-label="Ações principais">
+    <a
+      id="hero-cta-primary"
+      href="https://pay.hotmart.com/M105920942X?bid=1780934451223"
+      class="btn-primary"
+      aria-label="Comprar o kit SOS Telas Kids por R$27"
+    >Quero começar hoje por R$27 <span aria-hidden="true">→</span></a>
+    <a
+      id="hero-cta-secondary"
+      href="#kit"
+      class="btn-secondary"
+    >Ver o que vem no kit</a>
+  </div>
+
+  <div class="hero-trust" aria-label="Garantias">
+    <span>Acesso imediato</span>
+    <span>Use no celular ou impresso</span>
+    <span>Garantia de 7 dias</span>
+  </div>
+
+  <!-- Isometric object: aria-hidden, purely decorative -->
+  <div class="hero-object" aria-hidden="true">
+    <div class="hero-object-bg"></div>
+    <div class="iso-container">
+      <div class="iso-card iso-card-1">
+        <div class="iso-card-icon">🎯</div>
+        <div class="iso-card-title">Missão: Caça ao Tesouro</div>
+        <div class="iso-card-desc">15 min · Dentro de casa</div>
+      </div>
+      <div class="iso-card iso-card-2">
+        <div class="iso-card-icon">🎨</div>
+        <div class="iso-card-title">Desenho Surpresa</div>
+        <div class="iso-card-desc">10 min · Criatividade</div>
+      </div>
+      <div class="iso-card iso-card-3">
+        <div class="iso-card-icon">🏗️</div>
+        <div class="iso-card-title">Torre de Copos</div>
+        <div class="iso-card-desc">5 min · Desafio rápido</div>
+      </div>
+      <div class="iso-calendar">
+        <div class="iso-calendar-header">📅 Calendário de Missões</div>
+        <div class="iso-calendar-grid">
+          <div class="iso-calendar-day done"></div><div class="iso-calendar-day done"></div><div class="iso-calendar-day done"></div><div class="iso-calendar-day done"></div><div class="iso-calendar-day"></div>
+          <div class="iso-calendar-day done"></div><div class="iso-calendar-day done"></div><div class="iso-calendar-day"></div><div class="iso-calendar-day"></div><div class="iso-calendar-day"></div>
+          <div class="iso-calendar-day done"></div><div class="iso-calendar-day done"></div><div class="iso-calendar-day"></div><div class="iso-calendar-day"></div><div class="iso-calendar-day"></div>
+          <div class="iso-calendar-day done"></div><div class="iso-calendar-day active"></div><div class="iso-calendar-day"></div><div class="iso-calendar-day"></div><div class="iso-calendar-day"></div>
+        </div>
+      </div>
+      <div class="iso-volcano">
+        <div class="volcano-body"></div>
+        <div class="volcano-lava"></div>
+      </div>
+    </div>
+    <div class="hero-shadow"></div>
+  </div>
+</section>
+<!-- FIM SEÇÃO: HERO (DOBRA PRINCIPAL) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: STORY (CENA REAL - STORYTELLING) -->
+<!-- Descrição: Narrativa emocional sobre o problema que o kit resolve -->
+<!-- Classes: story, story-container -->
+<!-- ======================================== -->
+<section class="story" aria-labelledby="story-heading">
+  <div class="story-container">
+    <!-- Decorative accent rule — aria-hidden, purely visual -->
+    <div class="story-rule" aria-hidden="true"></div>
+
+    <h2 id="story-heading" class="story-headline">Não é falta de amor. É falta de uma alternativa pronta.</h2>
+    <p class="story-body">Chega o fim do dia. Você está cansado. A criança pede o celular. Dizer &ldquo;não&rdquo; até funciona por alguns minutos, mas logo vem a negociação, a insistência e a culpa.</p>
+    <p class="story-body">O SOS Telas Kids foi feito para esse intervalo exato: quando você quer reduzir o automático, mas precisa de algo simples o bastante para usar na vida real.</p>
+  </div>
+</section>
+<!-- FIM SEÇÃO: STORY (CENA REAL - STORYTELLING) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: KIT (O QUE VOCÊ RECEBE - BENTO GRID) -->
+<!-- Descrição: Grade de cards mostrando os 8 componentes do kit -->
+<!-- ID: #kit -->
+<!-- Classes: bento-grid, bento-card (span-2, row-2, featured), bento-icon, bento-tag, bento-title, bento-desc -->
+<!-- Componentes: SOS 5 Minutos, 100 Ideias Rápidas, Cartões de Missão, Calendário, Guia Completo, Tranquilidade dos Pais, Caixa Anti-Telas, Certificados -->
+<!-- ======================================== -->
+<section id="kit" aria-labelledby="kit-heading">
+  <div class="section-eyebrow">O que você recebe</div>
+  <h2 id="kit-heading" class="section-title">Não é só uma lista de brincadeiras.</h2>
+  <p class="section-subtitle">É um sistema simples para ter uma resposta na hora, organizar os próximos dias e sentir menos culpa na rotina.</p>
+
+  <!-- Bento grid: GSAP controls all card entrance animations -->
+  <!-- .reveal class removed — GSAP + ScrollTrigger owns motion state -->
+  <div class="bento-grid" role="list" aria-label="Componentes do kit SOS Telas Kids">
+
+    <div class="bento-card span-2 featured" role="listitem">
+      <div class="bento-icon coral" aria-hidden="true">⚡</div>
+      <div class="bento-tag">Base · Comece Aqui</div>
+      <h3 class="bento-title">SOS 5 Minutos</h3>
+      <p class="bento-desc">Painel inicial para entrar rápido sem precisar ler o kit inteiro.</p>
+    </div>
+
+    <div class="bento-card" role="listitem">
+      <div class="bento-icon blue" aria-hidden="true">💡</div>
+      <div class="bento-tag">Rápido</div>
+      <h3 class="bento-title">100 Ideias Rápidas</h3>
+      <p class="bento-desc">Para dias corridos, tédio e pedidos insistentes.</p>
+    </div>
+
+    <div class="bento-card" role="listitem">
+      <div class="bento-icon yellow" aria-hidden="true">🎴</div>
+      <div class="bento-tag">Escolha</div>
+      <h3 class="bento-title">Cartões de Missão</h3>
+      <p class="bento-desc">A criança sorteia. A decisão vira brincadeira.</p>
+    </div>
+
+    <div class="bento-card row-2" role="listitem">
+      <div class="bento-icon coral" aria-hidden="true">📅</div>
+      <div class="bento-tag">Ritual</div>
+      <h3 class="bento-title">Calendário das 30 Missões</h3>
+      <p class="bento-desc">Para marcar progresso, criar ritual e tornar a conquista visível.</p>
+    </div>
+
+    <div class="bento-card" role="listitem">
+      <div class="bento-icon green" aria-hidden="true">📖</div>
+      <div class="bento-tag">Plano</div>
+      <h3 class="bento-title">Guia Completo</h3>
+      <p class="bento-desc">Passo a passo das 30 missões.</p>
+    </div>
+
+    <div class="bento-card" role="listitem">
+      <div class="bento-icon blue" aria-hidden="true">🛡️</div>
+      <div class="bento-tag">Apoio</div>
+      <h3 class="bento-title">Tranquilidade dos Pais</h3>
+      <p class="bento-desc">Adapte com confiança e segurança.</p>
+    </div>
+
+    <div class="bento-card" role="listitem">
+      <div class="bento-icon yellow" aria-hidden="true">📦</div>
+      <div class="bento-tag">Materiais</div>
+      <h3 class="bento-title">Caixa Anti-Telas</h3>
+      <p class="bento-desc">Use o que já tem em casa.</p>
+    </div>
+
+    <div class="bento-card" role="listitem">
+      <div class="bento-icon green" aria-hidden="true">🏆</div>
+      <div class="bento-tag">Celebração</div>
+      <h3 class="bento-title">Certificados</h3>
+      <p class="bento-desc">Celebre cada conquista.</p>
+    </div>
+
+  </div>
+</section>
+<!-- FIM SEÇÃO: KIT (O QUE VOCÊ RECEBE - BENTO GRID) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: MÉTODO (TRÊS PORTAS) -->
+<!-- Descrição: Sistema de decisão por tempo disponível (3 categorias de missões) -->
+<!-- ID: #metodo -->
+<!-- Classes: doors-section, doors-grid, door, door-number, door-title, door-example, door-meta, door-tag -->
+<!-- Categorias: 01 (5-15 min, sem preparo), 02 (15-30 min, papel/objetos), 03 (20-40 min, materiais de casa) -->
+<!-- ======================================== -->
+<section class="doors-section" id="metodo" aria-labelledby="metodo-heading">
+  <div class="section-eyebrow">Escolha pelo momento</div>
+  <h2 id="metodo-heading" class="section-title">Três portas para decidir sem travar.</h2>
+  <p class="section-subtitle">Você não precisa de uma tarde perfeita. Só precisa da próxima alternativa possível.</p>
+
+  <!-- doors-grid: GSAP owns opacity/y — no .reveal class here -->
+  <div class="doors-grid" role="list" aria-label="Categorias de missões por tempo disponível">
+
+    <article class="door" role="listitem" aria-labelledby="door-01-title">
+      <div class="door-number" aria-hidden="true">01</div>
+      <h3 id="door-01-title" class="door-title">Para quando você precisa resolver na hora.</h3>
+      <p class="door-example">&ldquo;Mímica de animais, língua inventada, estátua de museu.&rdquo;</p>
+      <div class="door-meta">
+        <span class="door-tag">5–15 min</span>
+        <span class="door-tag">sem preparo</span>
+      </div>
+    </article>
+
+    <article class="door" role="listitem" aria-labelledby="door-02-title">
+      <div class="door-number" aria-hidden="true">02</div>
+      <h3 id="door-02-title" class="door-title">Para quando dá para sentar, sortear e começar.</h3>
+      <p class="door-example">&ldquo;Desenho de olhos fechados, caça às cores, torre de copos.&rdquo;</p>
+      <div class="door-meta">
+        <span class="door-tag">15–30 min</span>
+        <span class="door-tag">papel ou objetos</span>
+      </div>
+    </article>
+
+    <article class="door" role="listitem" aria-labelledby="door-03-title">
+      <div class="door-number" aria-hidden="true">03</div>
+      <h3 id="door-03-title" class="door-title">Para quando a família quer transformar a tarde.</h3>
+      <p class="door-example">&ldquo;Vulcão borbulhante, arco-íris no copo, balão foguete.&rdquo;</p>
+      <div class="door-meta">
+        <span class="door-tag">20–40 min</span>
+        <span class="door-tag">materiais de casa</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+<!-- FIM SEÇÃO: MÉTODO (TRÊS PORTAS) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: SHOWCASE (EXEMPLOS DO KIT) -->
+<!-- Descrição: Carrossel horizontal com exemplos de missões do kit -->
+<!-- Classes: showcase, showcase-header, showcase-scroll, mission-card, mission-category, mission-illust, mission-title, mission-desc, mission-time -->
+<!-- Categorias de Missões: ciencia, movimento, construcao, agora -->
+<!-- Exemplos: Vulcão Borbulhante, Balão Foguete, Cidade de Papelão, Mímica de Animais, Arco-íris no Copo -->
+<!-- ======================================== -->
+<section class="showcase">
+  <div class="showcase-header">
+    <div class="section-eyebrow reveal">Exemplos do kit</div>
+    <h2 class="section-title reveal">Tempo, bagunça e preparo claros.</h2>
+    <p class="section-subtitle reveal" style="font-family:'Inter',sans-serif">O kit mistura ciência simples, movimento, imaginação e construção com materiais fáceis de encontrar.</p>
+  </div>
+  <div class="showcase-scroll">
+    <div class="mission-card">
+      <span class="mission-category ciencia">Ciência · 25 min</span>
+      <div class="mission-illust">🌋</div>
+      <div class="mission-title">Vulcão Borbulhante</div>
+      <div class="mission-desc">Reação visual simples com bicarbonato, vinagre e supervisão adulta.</div>
+      <div class="mission-time">⏱ 25 min · ⚠️ Supervisão</div>
+    </div>
+    <div class="mission-card">
+      <span class="mission-category movimento">Movimento · 15 min</span>
+      <div class="mission-illust">🎈</div>
+      <div class="mission-title">Balão Foguete</div>
+      <div class="mission-desc">Desafio rápido para descobrir como o ar gera movimento.</div>
+      <div class="mission-time">⏱ 15 min · 👨‍👩‍👧 Em família</div>
+    </div>
+    <div class="mission-card">
+      <span class="mission-category construcao">Construção · 40 min</span>
+      <div class="mission-illust">🏙️</div>
+      <div class="mission-title">Cidade de Papelão</div>
+      <div class="mission-desc">Caixas viram ruas, casas, pontes e histórias dentro de casa.</div>
+      <div class="mission-time">⏱ 40 min · 🏠 Em casa</div>
+    </div>
+    <div class="mission-card">
+      <span class="mission-category agora">Agora · 10 min</span>
+      <div class="mission-illust">🎭</div>
+      <div class="mission-title">Mímica de Animais</div>
+      <div class="mission-desc">A criança sorteia ou escolhe animais e o adulto tenta adivinhar.</div>
+      <div class="mission-time">⏱ 10 min · ⚡ Imediato</div>
+    </div>
+    <div class="mission-card">
+      <span class="mission-category ciencia">Ciência · 20 min</span>
+      <div class="mission-illust">🌈</div>
+      <div class="mission-title">Arco-íris no Copo</div>
+      <div class="mission-desc">Experiência com líquidos de densidades diferentes formando camadas.</div>
+      <div class="mission-time">⏱ 20 min · 🧪 Materiais simples</div>
+    </div>
+  </div>
+</section>
+<!-- FIM SEÇÃO: SHOWCASE (EXEMPLOS DO KIT) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: TRANQUILIDADE (PILARES PARA PAIS) -->
+<!-- Descrição: Seção destacando segurança e adaptabilidade do kit para os pais -->
+<!-- Classes: tranquility, tranquility-quote, pillars-grid, pillar, pillar-icon, pillar-title, pillar-desc -->
+<!-- Pilares: Atividades com supervisão adulta, Adaptável por idade, Materiais simples de casa, Você adapta ao seu dia -->
+<!-- ======================================== -->
+<section>
+  <div class="tranquility">
+    <div class="section-eyebrow centered reveal">Tranquilidade para os pais</div>
+    <div class="tranquility-quote reveal">Não é sobre prometer tela zero. É sobre reduzir o improviso e ter opções reais nos momentos mais difíceis do dia.</div>
+    <div class="pillars-grid">
+      <div class="pillar reveal">
+        <div class="pillar-icon">👨‍👩‍👧</div>
+        <div>
+          <div class="pillar-title">Atividades com supervisão adulta</div>
+          <div class="pillar-desc">As missões foram pensadas para acontecer com presença e adaptação do adulto.</div>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">🎯</div>
+        <div>
+          <div class="pillar-title">Adaptável por idade</div>
+          <div class="pillar-desc">Para crianças de 4 a 10 anos, com margem para ajustar ao ritmo da família.</div>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">🏠</div>
+        <div>
+          <div class="pillar-title">Materiais simples de casa</div>
+          <div class="pillar-desc">Papel, lápis, caixas, água, fita e objetos que você já tem por perto.</div>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-icon">⚡</div>
+        <div>
+          <div class="pillar-title">Você adapta ao seu dia</div>
+          <div class="pillar-desc">O kit não impõe rotina rígida. Ele organiza possibilidades reais.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FIM SEÇÃO: TRANQUILIDADE (PILARES PARA PAIS) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: TESTIMONIALS (DEPOIMENTOS) -->
+<!-- Descrição: Grade de depoimentos com scroll vertical infinito em 3 colunas -->
+<!-- Classes: testimonials-section, testimonials-header-wrap, testimonials-pill, testimonials-h2, testimonials-sub, testimonials-grid, testimonial-column, testimonial-card, avatar-ring -->
+<!-- Animações: animate-scroll, scroll-speed-1/2/3, testimonial-mask -->
+<!-- Dados dos Depoimentos: data-name, data-role, data-avatar (usados pelo JS para rotação no pricing) -->
+<!-- ======================================== -->
+<section class="testimonials-section">
+  <div class="testimonials-header-wrap">
+    <div class="testimonials-pill">Depoimentos</div>
+    <h2 class="testimonials-h2">Testado por pais. Aprovado pelas crianças.</h2>
+    <p class="testimonials-sub" style="font-family:'Inter',sans-serif">Descubra por que tantas famílias investiram R$27 para recuperar o controle da rotina e tirar os filhos do celular sem brigas.</p>
+  </div>
+
+  <div class="testimonials-grid testimonial-mask" id="testimonials-source">
+    <div class="testimonial-column">
+      <ul class="animate-scroll scroll-speed-1">
+        <li class="testimonial-card" 
+            data-name="Mariana F." 
+            data-role="Mãe do Pedro (6 anos)" 
+            data-avatar="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150">
+          <blockquote>
+            <p>"Os 27 reais mais bem pagos da minha vida. O que mais me conectou com o kit foi o realismo. Ele não vem com aquele papo utópico de 'tela zero', porque quem trabalha e cuida de casa sabe que isso é impossível. Mas o kit virou o meu freio de emergência. Em vez de ligar a TV no automático quando estou exausta, olho o SOS 5 minutos e resolvo a situação sem culpa."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150" alt="Mariana F." class="avatar-ring">
+              <div>
+                <cite>Mariana F.</cite>
+                <span>Mãe do Pedro (6 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card"
+            data-name="Thiago R."
+            data-role="Pai do Arthur (5 anos)"
+            data-avatar="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150">
+          <blockquote>
+            <p>"Minha rotina é uma loucura e eu achava que não teria tempo de aplicar. Me surpreendi porque o kit é dividido pelo tempo que você tem disponível. Teve um dia que eu precisava de exatos 15 minutos para terminar de responder uns e-mails do trabalho e o Arthur estava implorando pelo celular. Abri o SOS Telas no celular mesmo, passei a mímica e funcionou perfeito. Salvou meu fim de tarde."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150" alt="Thiago R." class="avatar-ring">
+              <div>
+                <cite>Thiago R.</cite>
+                <span>Pai do Arthur (5 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card" aria-hidden="true">
+          <blockquote>
+            <p>"Os 27 reais mais bem pagos da minha vida. O que mais me conectou com o kit foi o realismo. Ele não vem com aquele papo utópico de 'tela zero', porque quem trabalha e cuida de casa sabe que isso é impossível. Mas o kit virou o meu freio de emergência. Em vez de ligar a TV no automático quando estou exausta, olho o SOS 5 minutos e resolvo a situação sem culpa."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150" alt="" class="avatar-ring">
+              <div>
+                <cite>Mariana F.</cite>
+                <span>Mãe do Pedro (6 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card" aria-hidden="true">
+          <blockquote>
+            <p>"Minha rotina é uma loucura e eu achava que não teria tempo de aplicar. Me surpreendi porque o kit é dividido pelo tempo que você tem disponível. Teve um dia que eu precisava de exatos 15 minutos para terminar de responder uns e-mails do trabalho e o Arthur estava implorando pelo celular. Abri o SOS Telas no celular mesmo, passei a mímica e funcionou perfeito. Salvou meu fim de tarde."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150" alt="" class="avatar-ring">
+              <div>
+                <cite>Thiago R.</cite>
+                <span>Pai do Arthur (5 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+
+    <div class="testimonial-column">
+      <ul class="animate-scroll scroll-speed-2">
+        <li class="testimonial-card"
+            data-name="Carlos Eduardo"
+            data-role="Pai do Murilo (4 anos)"
+            data-avatar="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150">
+          <blockquote>
+            <p>"Eu morria de medo de comprar esses materiais e vir uma lista de coisas impossíveis de achar, que me fariam gastar uma fortuna no armarinho. Mas a Caixa Anti-Telas usa literalmente o que você já tem. No último sábado, meu filho passou quase duas horas focado montando a Cidade de Papelão com caixas velhas e fita. Nem lembrou que o celular existia."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Carlos Eduardo" class="avatar-ring">
+              <div>
+                <cite>Carlos Eduardo</cite>
+                <span>Pai do Murilo (4 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card"
+            data-name="Juliana S."
+            data-role="Mãe da Sofia (8 anos)"
+            data-avatar="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150">
+          <blockquote>
+            <p>"Confesso que comprei com desconfiança pelo preço ser tão baixo, achei que seria só uma listinha boba de internet. Mas o material é super estruturado. Minha filha ficou encantada com os Cartões de Missão para sortear, para ela virou um jogo. Ela mesma vai lá, sorteia a brincadeira do dia e depois corre para marcar o progresso no calendário para ganhar o certificado. Vale muito mais do que custa."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150" alt="Juliana S." class="avatar-ring">
+              <div>
+                <cite>Juliana S.</cite>
+                <span>Mãe da Sofia (8 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card" aria-hidden="true">
+          <blockquote>
+            <p>"Eu morria de medo de comprar esses materiais e vir uma lista de coisas impossíveis de achar, que me fariam gastar uma fortuna no armarinho. Mas a Caixa Anti-Telas usa literalmente o que você já tem. No último sábado, meu filho passou quase duas horas focado montando a Cidade de Papelão com caixas velhas e fita. Nem lembrou que o celular existia."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="" class="avatar-ring">
+              <div>
+                <cite>Carlos Eduardo</cite>
+                <span>Pai do Murilo (4 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card" aria-hidden="true">
+          <blockquote>
+            <p>"Confesso que comprei com desconfiança pelo preço ser tão baixo, achei que seria só uma listinha boba de internet. Mas o material é super estruturado. Minha filha ficou encantada com os Cartões de Missão para sortear, para ela virou um jogo. Ela mesma vai lá, sorteia a brincadeira do dia e depois corre para marcar o progresso no calendário para ganhar o certificado. Vale muito mais do que custa."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150" alt="" class="avatar-ring">
+              <div>
+                <cite>Juliana S.</cite>
+                <span>Mãe da Sofia (8 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+
+    <div class="testimonial-column">
+      <ul class="animate-scroll scroll-speed-3">
+        <li class="testimonial-card"
+            data-name="Roberta G."
+            data-role="Mãe do Lucca e da Beatriz"
+            data-avatar="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150">
+          <blockquote>
+            <p>"Quem tem dois filhos com idades distantes sabe o parto que é achar algo que agrade os dois. Aqui em casa, com um de 4 e uma de 9 anos, o kit funcionou super bem porque as missões são muito adaptáveis. Enquanto o menor adora a parte do movimento, a mais velha fica fascinada com os experimentos de ciência, como o Balão Foguete. Virou o nosso ritual de fds."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150" alt="Roberta G." class="avatar-ring">
+              <div>
+                <cite>Roberta G.</cite>
+                <span>Mãe do Lucca e da Beatriz</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card"
+            data-name="Camila M."
+            data-role="Mãe da Clara (7 anos)"
+            data-avatar="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150">
+          <blockquote>
+            <p>"O melhor de tudo é que o kit tira o peso de nós, pais, termos que ficar inventando moda o tempo todo. Como a decisão da brincadeira é gamificada através dos cartões, a minha filha sente que ela está no controle. Ela escolhe a missão, a gente senta junto para fazer e o engajamento dela é outro. Recomendo de olhos fechados para todo pai e mãe que se sente refém das telas."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" alt="Camila M." class="avatar-ring">
+              <div>
+                <cite>Camila M.</cite>
+                <span>Mãe da Clara (7 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card" aria-hidden="true">
+          <blockquote>
+            <p>"Quem tem dois filhos com idades distantes sabe o parto que é achar algo que agrade os dois. Aqui em casa, com um de 4 e uma de 9 anos, o kit funcionou super bem porque as missões são muito adaptáveis. Enquanto o menor adora a parte do movimento, a mais velha fica fascinada com os experimentos de ciência, como o Balão Foguete. Virou o nosso ritual de fds."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150" alt="" class="avatar-ring">
+              <div>
+                <cite>Roberta G.</cite>
+                <span>Mãe do Lucca e da Beatriz</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+        <li class="testimonial-card" aria-hidden="true">
+          <blockquote>
+            <p>"O melhor de tudo é que o kit tira o peso de nós, pais, termos que ficar inventando moda o tempo todo. Como a decisão da brincadeira é gamificada através dos cartões, a minha filha sente que ela está no controle. Ela escolhe a missão, a gente senta junto para fazer e o engajamento dela é outro. Recomendo de olhos fechados para todo pai e mãe que se sente refém das telas."</p>
+            <footer>
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" alt="" class="avatar-ring">
+              <div>
+                <cite>Camila M.</cite>
+                <span>Mãe da Clara (7 anos)</span>
+              </div>
+            </footer>
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- FIM SEÇÃO: TESTIMONIALS (DEPOIMENTOS) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: PRICING (OFERTA E CHECKOUT) -->
+<!-- Descrição: Card de preço com oferta, benefícios, lista de componentes e depoimento rotativo -->
+<!-- ID: #pricing -->
+<!-- Classes: pricing-section, pricing-container, pricing-header, pricing-pill, pricing-card, pricing-card-inner, pricing-col-left, pricing-col-right -->
+<!-- Elementos: pricing-offer-badge, pricing-prices, pricing-price-new/old, pricing-discount-badge, pricing-benefits, pricing-cta, pricing-features, testimonial-box -->
+<!-- IDs JS: #test-avatar, #test-name, #test-role, #test-text (rotação de depoimentos) -->
+<!-- Link Checkout: https://pay.hotmart.com/M105920942X?bid=1780934451223 -->
+<!-- ======================================== -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-container">
+    
+    <div class="pricing-header">
+      <div class="pricing-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        Acesso Imediato e Seguro
+      </div>
+      <h2>Tire seu filho das telas sem precisar de uma tarde livre</h2>
+      <p style="font-family:'Inter',sans-serif">Reduza o improviso e tenha opções reais prontas para os momentos mais difíceis do dia.</p>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-card-inner">
+        
+        <div class="pricing-col-left">
+          <div>
+            <div>
+              <span class="pricing-offer-badge">Oferta Especial de Lançamento</span>
+            </div>
+
+            <h3>Kit SOS Telas Kids completo</h3>
+            <p class="desc">Uma resposta para agora. Organização para os próximos dias.</p>
+
+            <div class="pricing-prices">
+              <span class="pricing-price-new">R$ 27</span>
+              <span class="pricing-price-old">R$ 97</span>
+              <span class="pricing-discount-badge">72% OFF</span>
+            </div>
+
+            <div class="pricing-benefits">
+              <div class="pricing-benefit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" /></svg>
+                <span>Pagamento único, sem assinaturas ou mensalidades</span>
+              </div>
+              <div class="pricing-benefit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <span>7 dias de garantia incondicional (testar com calma)</span>
+              </div>
+              <div class="pricing-benefit">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                <span>Para crianças de 4 a 10 anos (com supervisão)</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://pay.hotmart.com/M105920942X?bid=1780934451223" class="pricing-cta">
+            <svg class="cta-cart" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z" /></svg>
+            <span>Quero Garantir Meu Acesso Imediato</span>
+            <svg class="cta-arrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+
+        <div class="pricing-col-right">
+          <div>
+            <h4>O que você vai receber:</h4>
+            
+            <div class="pricing-features">
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span><strong>SOS 5 Minutos:</strong> Painel Inicial de Entrada Rápida</span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span><strong>SOS Telas:</strong> 100 Ideias Rápidas para o Tédio</span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span>Cartões de Missão Interativos para Sortear</span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span>Calendário das 30 Missões (Progresso Visível)</span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span>Guia Completo das 30 Missões Passo a Passo</span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span>Guia de Tranquilidade e Segurança dos Pais</span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span>Lista Econômica da <strong>'Caixa Anti-Telas'</strong></span>
+              </div>
+              <div class="pricing-feature-item">
+                <span class="pricing-feature-check">✓</span>
+                <span>Certificados Imprimíveis de Pequeno Explorador</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="pricing-divider">
+
+          <div class="testimonial-box">
+            <div class="testimonial-content-wrapper">
+              <div class="test-top-row">
+                <div class="test-avatar-wrap">
+                  <img id="test-avatar" src="" alt="Avatar">
+                </div>
+                <div>
+                  <p id="test-name" class="test-name"></p>
+                  <p id="test-role" class="test-role"></p>
+                </div>
+                <div class="test-stars">
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+              </div>
+              <p id="test-text"></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- FIM SEÇÃO: PRICING (OFERTA E CHECKOUT) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: FAQ (PERGUNTAS FREQUENTES) -->
+<!-- Descrição: Accordion de perguntas e respostas com animação de abertura -->
+<!-- ID: #faq -->
+<!-- Classes: faq, faq-header, faq-item, faq-question, faq-icon, faq-answer -->
+<!-- Comportamento JS: Toggle de classe 'open' para expandir/colapsar -->
+<!-- ======================================== -->
+<section class="faq" id="faq">
+  <div class="faq-header">
+    <div class="section-eyebrow reveal">Perguntas frequentes</div>
+    <h2 class="section-title reveal">O que você precisa saber antes de entrar.</h2>
+    <p class="section-subtitle centered reveal" style="font-family:'Inter',sans-serif">Respostas diretas, sem promessa exagerada.</p>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-question"><span>É só um PDF com 30 missões?</span><span class="faq-icon">+</span></div>
+    <div class="faq-answer"><p>Não. O kit tem oito partes: SOS 5 Minutos, 100 ideias rápidas, cartões para sortear, calendário, guia completo das 30 missões, guia para pais, lista de materiais e certificados. Você usa no celular e imprime só o que fizer sentido.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-question"><span>Preciso imprimir tudo?</span><span class="faq-icon">+</span></div>
+    <div class="faq-answer"><p>Não. Você pode usar no celular e imprimir apenas os cartões, calendário e certificados se quiser deixar a rotina mais visível.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-question"><span>Isso acaba com as telas?</span><span class="faq-icon">+</span></div>
+    <div class="faq-answer"><p>Não. A proposta não é eliminar telas. É oferecer alternativas concretas para reduzir o automático e criar mais momentos fora delas.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-question"><span>Recebo na hora?</span><span class="faq-icon">+</span></div>
+    <div class="faq-answer"><p>Sim. Após a confirmação da compra na Hotmart, o acesso é digital e imediato.</p></div>
+  </div>
+  <div class="faq-item reveal">
+    <div class="faq-question"><span>Serve para mais de uma criança?</span><span class="faq-icon">+</span></div>
+    <div class="faq-answer"><p>Sim. O uso é familiar. Dá para adaptar as missões para mais de uma criança, respeitando idade, maturidade e supervisão adulta.</p></div>
+  </div>
+</section>
+<!-- FIM SEÇÃO: FAQ (PERGUNTAS FREQUENTES) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: CRIADOR (SOBRE O CRIADOR) -->
+<!-- Descrição: Seção apresentando o criador do kit com foto, bio e citação -->
+<!-- Classes: creator, creator-container, creator-photo, creator-eyebrow, creator-title, creator-text, creator-quote, creator-name, creator-role -->
+<!-- Criador: Manoel Calaça Junior -->
+<!-- ======================================== -->
+<section class="creator">
+  <div class="creator-container">
+    <div class="creator-photo reveal">MCJ</div>
+    <div>
+      <div class="creator-eyebrow reveal">Sobre o criador</div>
+      <h2 class="creator-title reveal">Criado por quem conhece essa cena de perto.</h2>
+      <p class="creator-text reveal" style="font-family:'Inter',sans-serif">O SOS Telas Kids nasceu de uma preocupação real: ver o celular ocupar cada vez mais espaço na rotina das crianças — e perceber que, para muitos pais, o problema não é saber que a tela está demais. É não ter uma alternativa pronta na hora em que ela parece a saída mais fácil.</p>
+      <div class="creator-quote reveal">"Eu não sou o pai perfeito. Sou um pai que também já cedeu por cansaço, já tentou improvisar e já sentiu culpa depois. Criei o SOS Telas Kids para ajudar famílias a terem uma resposta mais simples, mais leve e mais possível quando o pedido pelo celular aparece."</div>
+      <div class="creator-name reveal">Manoel Calaça Junior</div>
+      <div class="creator-role reveal">Criador do SOS Telas Kids</div>
+    </div>
+  </div>
+</section>
+<!-- FIM SEÇÃO: CRIADOR (SOBRE O CRIADOR) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: FOOTER STICKY (RODAPÉ) -->
+<!-- Descrição: Rodapé com efeito sticky, grid de links, tagline e redes sociais -->
+<!-- Classes: footer-sticky-container, footer-sticky-inner, footer-sticky-content, footer-inner, footer-bg-blur-1/2, footer-nav, footer-grid, footer-col, footer-bottom, footer-left, footer-right, footer-tagline, footer-desc, footer-copyright, footer-socials, footer-social -->
+<!-- Colunas: Produto, Uso, Compra, Legal -->
+<!-- Animações: float-blur, pulse-width -->
+<!-- ======================================== -->
+<div class="footer-sticky-container">
+  <div class="footer-sticky-inner">
+    <div class="footer-sticky-content">
+      <div class="footer-inner">
+        <div class="footer-bg-blur-1"></div>
+        <div class="footer-bg-blur-2"></div>
+
+        <div class="footer-nav">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <h3>Produto</h3>
+              <a href="#kit">Kit completo</a>
+              <a href="#metodo">Como funciona</a>
+              <a href="#pricing">Oferta</a>
+              <a href="#kit">Kit digital anti-telas</a>
+            </div>
+            <div class="footer-col">
+              <h3>Uso</h3>
+              <a href="#kit">SOS 5 Minutos</a>
+              <a href="#kit">100 ideias rápidas</a>
+              <a href="#faq">Perguntas frequentes</a>
+              <a href="#kit">Crianças de 4 a 10 anos</a>
+            </div>
+            <div class="footer-col">
+              <h3>Compra</h3>
+              <a href="https://pay.hotmart.com/M105920942X?bid=1780934451223">Comprar por R$27</a>
+              <a href="#pricing">Pagamento único</a>
+              <a href="#pricing">Acesso imediato</a>
+              <a href="#pricing">7 dias de garantia</a>
+            </div>
+            <div class="footer-col">
+              <h3>Legal</h3>
+              <a href="#">Termos de Uso</a>
+              <a href="#">Privacidade</a>
+              <a href="#">Criador</a>
+              <a href="#">Supervisão adulta recomendada</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-left">
+            <h1 class="footer-tagline" style="font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-0.05em">Menos improviso.<br>Mais presença.</h1>
+            <div class="footer-desc">
+              <div class="pulse-line"></div>
+              <p>Um kit digital para ajudar famílias a terem uma alternativa pronta quando o celular parece a saída mais fácil.</p>
+            </div>
+          </div>
+          <div class="footer-right">
+            <p class="footer-copyright">©2026 Todos os direitos reservados</p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social" aria-label="Twitter"><span>T</span></a>
+              <a href="#" class="footer-social" aria-label="GitHub"><span>G</span></a>
+              <a href="#" class="footer-social" aria-label="LinkedIn"><span>L</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FIM SEÇÃO: FOOTER STICKY (RODAPÉ) -->
+
+<!-- ======================================== -->
+<!-- SEÇÃO: JAVASCRIPT - INTERATIVIDADE -->
+<!-- Descrição: Scripts para progress bar, scroll reveal, FAQ accordion, smooth scroll e animações GSAP -->
+<!-- Funcionalidades: -->
+<!--   1. Progress Bar: Atualiza largura baseado no scroll -->
+<!--   2. Intersection Observer: Adiciona classe 'visible' para animações reveal -->
+<!--   3. FAQ Accordion: Toggle de perguntas (apenas uma aberta por vez) -->
+<!--   4. Smooth Scroll: Navegação suave para âncoras internas -->
+<!--   5. GSAP Animations: Entrada do pricing e rotação de depoimentos -->
+<!-- ======================================== -->
+<script>
+  /* =============================================================
+   * SOS Telas Kids — GSAP Motion System
+   * Princípios: Apple easing | scrub preciso | zero stutter
+   * ============================================================= */
+
+  // ── 1. REGISTRAR PLUGINS ────────────────────────────────────────
+  gsap.registerPlugin(ScrollTrigger);
+
+  // ── 2. PROGRESS BAR (passiva, via ScrollTrigger) ────────────────
+  gsap.to('#progressBar', {
+    width: '100%',
+    ease: 'none',
+    scrollTrigger: {
+      scrub: 0.3,
+      start: 'top top',
+      end: 'bottom bottom'
+    }
+  });
+
+  // ── 3. INTERSECTION OBSERVER (reveal) ───────────────────────────
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── 4. FAQ ACCORDION ────────────────────────────────────────────
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // ── 5. SMOOTH SCROLL ÂNCORAS ────────────────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── 6. ANIMAÇÕES APPLE — DOMContentLoaded ───────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap === 'undefined') return;
+
+    /* ------------------------------------------------------------------
+     * 6A. HERO — Coreografia de entrada estilo Apple WWDC
+     *
+     * Princípios Karpathy aplicados:
+     *   – gsap.set() ANTES da timeline (zero flash, zero race condition)
+     *   – Nenhuma leitura de propriedade de layout dentro da timeline
+     *   – force3D em todos os elementos animados (compositor GPU)
+     *   – prefers-reduced-motion: fallback instantâneo sem animação
+     *   – Botões com z-index:1 no CSS → sempre clicáveis, mesmo durante
+     *     a animação. pointer-events nunca bloqueado.
+     *
+     * Easing map:
+     *   h1       → expo.out   (1.2s) — entrada dramática, slow-out suave
+     *   subtitle → power4.out (0.9s) — leve, orgânico
+     *   ctas     → power4.out (0.8s) — mais rápido, prioridade de clique
+     *   trust    → power3.out (0.7s) — suave, secundário
+     *   object   → expo.out   (1.1s) — emerge com blur, paralelo ao h1
+     * ----------------------------------------------------------------- */
+
+    // ── STEP 1: Definir estado inicial ANTES de qualquer timeline ──
+    // Regra Karpathy: nunca deixar o browser renderizar um estado
+    // intermediário. set() é síncrono e não causa layout thrashing.
+    gsap.set('.hero h1',       { opacity: 0, y: 32,  filter: 'blur(14px)', force3D: true });
+    gsap.set('.hero-subtitle', { opacity: 0, y: 20,  force3D: true });
+    gsap.set('.hero-ctas',     { opacity: 0, y: 16,  force3D: true });
+    gsap.set('.hero-trust',    { opacity: 0, y: 10,  force3D: true });
+    gsap.set('.hero-badge',    { opacity: 0, y: -10, force3D: true });
+    gsap.set('.hero-object',   { opacity: 0, y: 24,  filter: 'blur(8px)', force3D: true });
+
+    // ── STEP 2: matchMedia — respeita prefers-reduced-motion ──────
+    // Usuários com reduced-motion preferem zero animação: revelamos
+    // tudo instantaneamente sem delay ou efeitos visuais.
+    const heroMM = gsap.matchMedia();
+
+    heroMM.add('(prefers-reduced-motion: no-preference)', () => {
+      /* ── Coreografia fluida completa ── */
+      const heroTl = gsap.timeline({
+        defaults: { force3D: true },
+        delay: 0.05 // aguarda primeiro paint do browser
+      });
+
+      // Badge: sobe de baixo, sutil — ancora o olho antes do título
+      heroTl.to('.hero-badge', {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+      })
+      // h1: blur-fade — o movimento mais dramático, estilo Apple WWDC
+      .to('.hero h1', {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.2,
+        ease: 'expo.out'
+      }, '-=0.35')
+      // Subtítulo: entra suave, sem blur — peso visual menor
+      .to('.hero-subtitle', {
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        ease: 'power4.out'
+      }, '-=0.75')
+      // CTAs: revelação rápida — interação disponível o mais cedo possível
+      .to('.hero-ctas', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power4.out'
+      }, '-=0.65')
+      // Trust signals: últimos, mais suaves — informação de suporte
+      .to('.hero-trust', {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out'
+      }, '-=0.55')
+      // Objeto isométrico: emerge em paralelo ao trust, com blur leve
+      .to('.hero-object', {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 1.1,
+        ease: 'expo.out'
+      }, '-=0.6');
+
+      // Cleanup: quando o breakpoint muda, revelar tudo imediatamente
+      return () => {
+        gsap.set(
+          ['.hero-badge', '.hero h1', '.hero-subtitle', '.hero-ctas', '.hero-trust', '.hero-object'],
+          { opacity: 1, y: 0, filter: 'blur(0px)' }
+        );
+      };
+    });
+
+    // Fallback: reduced-motion ou prefers-reduced-motion: reduce
+    // Revela tudo instantaneamente, sem animação nenhuma
+    heroMM.add('(prefers-reduced-motion: reduce)', () => {
+      gsap.set(
+        ['.hero-badge', '.hero h1', '.hero-subtitle', '.hero-ctas', '.hero-trust', '.hero-object'],
+        { opacity: 1, y: 0, filter: 'blur(0px)', clearProps: 'will-change' }
+      );
+    });
+
+    /* ------------------------------------------------------------------
+     * 6B. STORY — Scroll-triggered reveal
+     *
+     * Princípios aplicados:
+     *   – gsap.set() antes de qualquer animação (zero flash)
+     *   – fromTo com valores lidos uma vez, nunca dentro do callback
+     *   – stagger entre regra, h2 e parágrafos: leitura fluida
+     *   – prefers-reduced-motion: reveal instantâneo
+     * ----------------------------------------------------------------- */
+    const storyEls = [
+      '.story-rule',
+      '.story-headline',
+      '.story-body'
+    ];
+
+    // Set inicial antes da matchMedia — zero flash em qualquer condição
+    gsap.set(storyEls.flatMap(sel => gsap.utils.toArray(sel)), {
+      opacity: 0,
+      y: 24,
+      force3D: true
+    });
+    // A regra começa mais baixa e sobe com scale
+    gsap.set('.story-rule', { scaleX: 0, y: 0, transformOrigin: 'left center' });
+
+    const storyMM = gsap.matchMedia();
+
+    storyMM.add('(prefers-reduced-motion: no-preference)', () => {
+      // Regra decorativa: scale in de esquerda para direita
+      gsap.fromTo('.story-rule',
+        { opacity: 0, scaleX: 0 },
+        {
+          opacity: 1,
+          scaleX: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: '.story',
+            start: 'top 75%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+
+      // Headline: blur-fade leve, eco do estilo Hero
+      gsap.fromTo('.story-headline',
+        { opacity: 0, y: 28, filter: 'blur(8px)' },
+        {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 1.0,
+          ease: 'expo.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: '.story',
+            start: 'top 72%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+
+      // Parágrafos: stagger em cascata
+      gsap.fromTo('.story-body',
+        { opacity: 0, y: 18 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: 'power4.out',
+          stagger: 0.15,
+          force3D: true,
+          scrollTrigger: {
+            trigger: '.story',
+            start: 'top 68%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+
+      return () => {
+        gsap.set(['.story-rule', '.story-headline', '.story-body'],
+          { opacity: 1, y: 0, filter: 'blur(0px)', scaleX: 1 });
+      };
+    });
+
+    storyMM.add('(prefers-reduced-motion: reduce)', () => {
+      gsap.set(['.story-rule', '.story-headline', '.story-body'],
+        { opacity: 1, y: 0, filter: 'blur(0px)', scaleX: 1, clearProps: 'will-change' });
+    });
+
+    /* ------------------------------------------------------------------
+     * 6C. BENTO GRID (#kit) — Stagger cascata com ScrollTrigger
+     *
+     * Design decision: removido o pin+scrub anterior.
+     * Motivo: pin com scrub lê offsetTop/clientHeight a cada rAF,
+     * forçando layout thrashing nos cards ainda não visíveis.
+     * Substituído por fromTo individual com stagger e ScrollTrigger
+     * toggleActions — zero leitura de layout dentro da animação.
+     *
+     * Easing: power4.out — orgânico, sem bounce, decelera suave.
+     * Stagger: 0.07s por card — cascata perceptível mas não lenta.
+     * ----------------------------------------------------------------- */
+    const bentoCards = gsap.utils.toArray('#kit .bento-card');
+
+    if (bentoCards.length > 0) {
+      // Set inicial: todos os cards invisíveis antes da matchMedia
+      // Valores lidos uma vez, nunca re-lidos dentro da timeline
+      gsap.set(bentoCards, { opacity: 0, y: 36, force3D: true });
+
+      const bentoMM = gsap.matchMedia();
+
+      bentoMM.add('(prefers-reduced-motion: no-preference)', () => {
+        // Uma única ScrollTrigger por grupo de cards — eficiente
+        gsap.fromTo(bentoCards,
+          { opacity: 0, y: 36 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+            ease: 'power4.out',
+            stagger: 0.07,      // cascata elegante: 8 cards = ~560ms total
+            force3D: true,
+            scrollTrigger: {
+              trigger: '#kit .bento-grid',
+              start: 'top 82%', // dispara quando o grid entra no viewport
+              toggleActions: 'play none none none',
+              invalidateOnRefresh: true
+            }
+          }
+        );
+
+        return () => {
+          gsap.set(bentoCards, { opacity: 1, y: 0, clearProps: 'will-change' });
+        };
+      });
+
+      bentoMM.add('(prefers-reduced-motion: reduce)', () => {
+        // Reduced motion: revelar tudo instantaneamente
+        gsap.set(bentoCards, { opacity: 1, y: 0, clearProps: 'will-change' });
+      });
+    }
+
+    /* ------------------------------------------------------------------
+     * 6D. TRÊS PORTAS — Stagger cascata calibrado
+     *
+     * Princípios Karpathy aplicados:
+     *   – gsap.set() antes da matchMedia (zero flash)
+     *   – Uma única ScrollTrigger por grupo (eficiente)
+     *   – stagger: 0.15s — ritmo de leitura entre os 3 pilares
+     *   – power2.out: orgânico, sem bounce — sensação de assentamento
+     *   – fromTo lê valores uma vez, nunca re-lê no scroll
+     * ----------------------------------------------------------------- */
+    const doorCards = gsap.utils.toArray('#metodo .door');
+    const doorsHeader = gsap.utils.toArray(
+      '#metodo .section-eyebrow, #metodo .section-title, #metodo .section-subtitle'
+    );
+
+    // Set inicial: estado invisível, lido uma única vez
+    gsap.set(doorsHeader, { opacity: 0, y: 20, force3D: true });
+    gsap.set(doorCards,   { opacity: 0, y: 40, force3D: true });
+
+    const doorsMM = gsap.matchMedia();
+
+    doorsMM.add('(prefers-reduced-motion: no-preference)', () => {
+      // Cabeçalho da seção: fade suave
+      gsap.fromTo(doorsHeader,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          stagger: 0.1,
+          force3D: true,
+          scrollTrigger: {
+            trigger: '#metodo',
+            start: 'top 78%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+
+      // Cards: stagger 0.15s — sensação de assentamento progressivo
+      gsap.fromTo(doorCards,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: 'power2.out',   // orgânico, sem bounce — "assentamento"
+          stagger: 0.15,        // calibrado: 3 cards = 450ms de cascata
+          force3D: true,
+          scrollTrigger: {
+            trigger: '#metodo .doors-grid',
+            start: 'top 82%',
+            toggleActions: 'play none none none',
+            invalidateOnRefresh: true
+          }
+        }
+      );
+
+      return () => {
+        gsap.set([...doorsHeader, ...doorCards], { opacity: 1, y: 0, clearProps: 'will-change' });
+      };
+    });
+
+    doorsMM.add('(prefers-reduced-motion: reduce)', () => {
+      gsap.set([...doorsHeader, ...doorCards], { opacity: 1, y: 0, clearProps: 'will-change' });
+    });
+
+    /* ------------------------------------------------------------------
+     * 6E. TESTIMONIALS — Header reveal suave
+     *
+     * Animação do cabeçalho (pill + h2 + sub) via ScrollTrigger.
+     * O carrossel vertical em CSS fica intocado — não usar GSAP nele
+     * para evitar conflito com a @keyframes scroll existente.
+     * ----------------------------------------------------------------- */
+    const testimonialsHeader = gsap.utils.toArray(
+      '.testimonials-header-wrap .testimonials-pill,
+       .testimonials-header-wrap .testimonials-h2,
+       .testimonials-header-wrap .testimonials-sub'
+    );
+
+    gsap.set(testimonialsHeader, { opacity: 0, y: 18, force3D: true });
+
+    const testimonialsMM = gsap.matchMedia();
+
+    testimonialsMM.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.fromTo(testimonialsHeader,
+        { opacity: 0, y: 18 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: 'power3.out',
+          stagger: 0.12,
+          force3D: true,
+          scrollTrigger: {
+            trigger: '.testimonials-section',
+            start: 'top 78%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+
+      return () => {
+        gsap.set(testimonialsHeader, { opacity: 1, y: 0, clearProps: 'will-change' });
+      };
+    });
+
+    testimonialsMM.add('(prefers-reduced-motion: reduce)', () => {
+      gsap.set(testimonialsHeader, { opacity: 1, y: 0, clearProps: 'will-change' });
+    });
+
+    /* ------------------------------------------------------------------
+     * 6F. PRICING (existente) — preservado, agora com ScrollTrigger
+     * ----------------------------------------------------------------- */
+    gsap.to('.pricing-header', {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: '.pricing-section',
+        start: 'top 75%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    gsap.to('.pricing-card', {
+      opacity: 1,
+      y: 0,
+      duration: 1.1,
+      ease: 'expo.out',
+      scrollTrigger: {
+        trigger: '.pricing-section',
+        start: 'top 70%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    /* ------------------------------------------------------------------
+     * 6D. SECTION TITLES — Blur-fade leve no scroll (todos section-title)
+     * ----------------------------------------------------------------- */
+    gsap.utils.toArray('.section-title').forEach(title => {
+      gsap.fromTo(title,
+        { opacity: 0, y: 32, filter: 'blur(8px)' },
+        {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          duration: 1.0,
+          ease: 'expo.out',
+          force3D: true,
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
+    });
+
+    /* ------------------------------------------------------------------
+     * 6E. TESTIMONIALS — rotação com GSAP (preservado)
+     * ----------------------------------------------------------------- */
+    const testimonialElements = document.querySelectorAll(
+      '#testimonials-source .testimonial-card:not([aria-hidden="true"])'
+    );
+
+    const testimonials = Array.from(testimonialElements).map(card => ({
+      name: card.dataset.name || card.querySelector('cite')?.textContent || '',
+      role: card.dataset.role || card.querySelector('footer span')?.textContent || '',
+      text: card.querySelector('blockquote p')?.textContent || '',
+      avatar: card.dataset.avatar || card.querySelector('img')?.src || ''
+    }));
+
+    if (testimonials.length === 0) return;
+
+    let currentIndex = 0;
+    const avatarEl = document.getElementById('test-avatar');
+    const nameEl   = document.getElementById('test-name');
+    const roleEl   = document.getElementById('test-role');
+    const textEl   = document.getElementById('test-text');
+    const wrapperEl = document.querySelector('.testimonial-content-wrapper');
+
+    function updateTestimonialContent(index) {
+      avatarEl.src       = testimonials[index].avatar;
+      nameEl.textContent = testimonials[index].name;
+      roleEl.textContent = testimonials[index].role;
+      textEl.textContent = testimonials[index].text;
+    }
+
+    updateTestimonialContent(currentIndex);
+
+    function rotateTestimonials() {
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        const tl = gsap.timeline();
+        tl.to(wrapperEl, {
+          opacity: 0, y: -14, duration: 0.35, ease: 'power2.in',
+          onComplete: () => {
+            updateTestimonialContent(currentIndex);
+            gsap.set(wrapperEl, { y: 14 });
+          }
+        })
+        .to(wrapperEl, { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' });
+      }, 6000);
+    }
+
+    if (testimonials.length > 1) rotateTestimonials();
+
+    // ── Refresh ScrollTrigger após imagens carregarem ────────────────
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+  });
+</script>
+<!-- FIM SEÇÃO: JAVASCRIPT - INTERATIVIDADE -->
+
+</body>
+<!-- ======================================== -->
+<!-- FIM DO DOCUMENTO HTML -->
+<!-- ======================================== -->
+</html>
