@@ -1,0 +1,6 @@
+interface:
+  display_name: "Frontend Engineering Gate"
+  short_description: "Production frontend quality gate for UI implementation, responsiveness, accessibility, state handling, tokens, and code readiness."
+  default_prompt: "Use Frontend Engineering Gate to audit this UI implementation before final polish or merge."
+policy:
+  allow_implicit_invocation: true
