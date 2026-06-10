@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-white: #FFFFFF;
+    --color-offwhite: #F5F5F7;
+    --color-paper: #FBF8F1;
+    --color-text: #1D1D1F;
+    --color-muted: #6E6E73;
+    --color-border: #E8E8ED;
+    --color-accent: #EFA12A;
+    --color-confirm: #137A6A;
+    --color-accent-soft: #FFF3DC;
+    --color-confirm-soft: #E8F4F1;
+    --color-surface-warm: #FBF8F1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1120px] mx-auto px-6;
+  }
+
+  .hero-container {
+    @apply max-w-[1440px] mx-auto px-6;
+  }
+
+  .offer-container {
+    @apply max-w-[1280px] mx-auto px-6;
+  }
+
+  .faq-container {
+    @apply max-w-[920px] mx-auto px-6;
+  }
+
+  .reading-width {
+    @apply max-w-[720px] mx-auto px-6;
+  }
+
+  .section-shell {
+    @apply py-24 md:py-32;
+  }
+
+  /* Scroll margin for anchor links */
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold tracking-widest uppercase text-muted mb-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-accent text-[#1D1D1F] font-bold rounded-full 
+           transition-all duration-200 hover:bg-[#d99124] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2
+           text-base leading-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-transparent text-text font-bold rounded-full 
+           border-2 border-border transition-all duration-200 hover:border-text 
+           focus:outline-none focus:ring-2 focus:ring-text focus:ring-offset-2
+           text-base leading-none;
+  }
+
+  .surface-card {
+    @apply bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-border;
+  }
+
+  .offer-card {
+    @apply bg-white rounded-[36px] p-8 md:p-12 shadow-lg border border-border;
+  }
+
+  .nav-solid {
+    @apply bg-white/90 backdrop-blur-md border-b border-border shadow-sm;
+  }
+
+  .faq-item {
+    @apply border-b border-border py-6;
+  }
+
+  .hero-display {
+    @apply text-[44px] md:text-[72px] lg:text-[80px] font-extrabold leading-[1.0] tracking-tight;
+  }
+
+  .section-title {
+    @apply text-[32px] md:text-[44px] lg:text-[56px] font-bold leading-[1.1] tracking-tight;
+  }
+
+  .subheadline {
+    @apply text-[18px] md:text-[20px] lg:text-[24px] leading-relaxed text-muted;
+  }
+
+  .body-text {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+
+  .caption {
+    @apply text-sm md:text-base text-muted;
+  }
+}

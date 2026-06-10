@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SOS Telas Kids — Kit digital anti-telas para crianças de 4 a 10 anos</title>
+  <meta name="description" content="Um kit digital com ideias rápidas, cartões, calendário, missões e guias para ajudar famílias a criarem alternativas simples e encantadoras fora das telas.">
+  
+  <meta property="og:title" content="SOS Telas Kids">
+  <meta property="og:description" content="Uma alternativa pronta para quando o celular parecer a saída mais fácil.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og-sos-telas.jpg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./output.css">
+  
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '974940322122465');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=974940322122465&ev=PageView&noscript=1"
+  /></noscript>
+</head>
+<body class="antialiased">
+  
+<!-- =========================================================
+  NAV
+  Função: navegação fixa, CTA principal e âncoras internas.
+========================================================= -->
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-white/80 backdrop-blur-sm">
+  <div class="hero-container flex items-center justify-between px-6">
+    <a href="#" class="text-lg font-bold tracking-tight text-[var(--color-text)] hover:opacity-80 transition-opacity">
+      SOS Telas Kids
+    </a>
+    
+    <!-- Desktop nav links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#programa" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Programa</a>
+      <a href="#metodo" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Método</a>
+      <a href="#oferta" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Oferta</a>
+      <a href="#faq" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">FAQ</a>
+    </div>
+    
+    <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary text-sm px-6 py-3 hidden md:inline-block">
+      Começar hoje
+    </a>
+    
+    <!-- Mobile CTA only -->
+    <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary text-sm px-5 py-2.5 md:hidden">
+      Começar
+    </a>
+  </div>
+</nav>
+
+<!-- =========================================================
+  SEÇÃO 1 — HERO SHOWCASE
+  Função: criar desejo imediato e apresentar a alternativa pronta.
+========================================================= -->
+<section class="relative min-h-screen pt-32 pb-20 overflow-hidden bg-[var(--color-offwhite)]">
+  <div class="hero-container relative px-6">
+    <!-- Hero Object - Asset final entra aqui -->
+    <!-- 
+      Asset final: /assets/hero-object.webp
+      Dimensões: mínimo 1600x1000px, ideal 2200x1400px
+      Formato: WebP ou PNG com fundo transparente real
+    -->
+    <div class="absolute top-[11vh] left-1/2 -translate-x-[38%] w-full max-w-[1120px] pointer-events-none hero-object-frame">
+      <!-- PLACEHOLDER ELEGANTE - Substituir por imagem real -->
+      <div class="w-full aspect-[16/10] bg-gradient-to-br from-[var(--color-accent-soft)] via-[var(--color-paper)] to-[var(--color-confirm-soft)] rounded-[2rem] flex items-center justify-center border border-[var(--color-border)] shadow-2xl">
+        <div class="text-center p-8">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-soft)] flex items-center justify-center shadow-lg">
+            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm font-medium">Prévia do objeto-herói</p>
+          <p class="text-[var(--color-muted)] text-xs mt-1 opacity-70">Substituir por /assets/hero-object.webp</p>
+        </div>
+      </div>
+      <!-- 
+      <img 
+        src="/assets/hero-object.webp" 
+        alt="Kit digital SOS Telas Kids organizado em materiais de missão" 
+        class="w-full h-auto drop-shadow-2xl hero-object-image"
+        width="2200"
+        height="1400"
+      />
+      -->
+    </div>
+
+    <!-- Copy ancorada no inferior esquerdo desktop -->
+    <div class="relative z-10 pt-[60vh] md:pt-0 md:absolute md:bottom-16 md:left-0 md:max-w-[520px]">
+      <p class="eyebrow mb-4">Kit digital anti-telas · 4 a 10 anos</p>
+      <h1 class="hero-display mb-6 text-[var(--color-text)]">
+        Quando o celular parecer a saída mais fácil, tenha uma alternativa pronta.
+      </h1>
+      <p class="subheadline mb-8">
+        Comece em 5 minutos, use ideias rápidas nos dias corridos e avance para missões completas quando houver mais tempo.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary">
+          Quero começar hoje
+        </a>
+        <a href="#como-funciona" class="btn-secondary">
+          Ver como funciona
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 text-xs text-[var(--color-muted)]">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <span>Acesso digital imediato</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <span>Uso no celular ou impresso</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <span>Garantia de 7 dias</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <span>Supervisão adulta</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card de preço/CTA ancorado no inferior direito desktop -->
+    <div class="hidden md:block absolute bottom-16 right-0 z-10">
+      <div class="bg-white/90 backdrop-blur-md rounded-[2rem] p-6 border border-[var(--color-border)] shadow-xl min-w-[280px]">
+        <p class="text-sm text-[var(--color-muted)] mb-1">Kit completo por</p>
+        <p class="text-4xl font-bold text-[var(--color-text)] mb-1">R$27</p>
+        <p class="text-xs text-[var(--color-muted)] mb-4">Acesso imediato</p>
+        <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary w-full">
+          Quero começar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile CTA sticky (discreto, full-width) -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-sm border-t border-[var(--color-border)] py-3 px-4 safe-area-pb">
+    <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary w-full text-sm py-3 block text-center">
+      Quero começar por R$27
+    </a>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 2 — CONSCIÊNCIA + MÁGICA FORA DAS TELAS
+  Função: criar identificação emocional sem culpa.
+========================================================= -->
+<section id="programa" class="section-shell bg-white">
+  <!-- Texto centralizado - reading-width 720px -->
+  <div class="reading-width text-center mx-auto px-6">
+    <p class="eyebrow mb-4">O MOMENTO REAL</p>
+    <h2 class="section-title mb-6">
+      A infância ainda tem mágica fora das telas.<br>
+      Só precisa de um convite mais fácil.
+    </h2>
+    <p class="subheadline">
+      O celular é rápido, colorido e sempre disponível. Mas uma criança também se encanta com uma missão simples, uma descoberta na mesa, uma experiência com água, papel, cor, movimento ou imaginação — quando o adulto tem uma ideia pronta para começar.
+    </p>
+  </div>
+
+  <!-- Cards - content-container 1120px -->
+  <div class="content-container mx-auto px-6 mt-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="surface-card">
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Consciência</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          Você percebe que a tela está ocupando espaço demais e quer criar outros caminhos antes que isso vire automático.
+        </p>
+      </div>
+      <div class="surface-card">
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Encantamento</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          Uma missão simples pode transformar papelão em cidade, bicarbonato em vulcão e uma tarde comum em descoberta.
+        </p>
+      </div>
+      <div class="surface-card">
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Praticidade</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          Você não precisa preparar uma tarde perfeita. Só precisa de uma alternativa possível para o momento de hoje.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fechamento - reading-width 720px -->
+  <div class="reading-width text-center mx-auto px-6 mt-12">
+    <p class="text-lg text-[var(--color-muted)]">
+      O SOS Telas Kids existe para isso: transformar a preocupação com telas em convites simples para brincar, descobrir e marcar pequenas conquistas fora delas.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 3 — O SISTEMA
+  Função: explicar SOS agora + plano depois.
+========================================================= -->
+<section id="como-funciona" class="section-shell bg-[var(--color-offwhite)]">
+  <div class="content-container mx-auto px-6">
+    <p class="eyebrow text-center mb-4">COMO FUNCIONA</p>
+    <h2 class="section-title text-center mb-6">
+      Um SOS para hoje.<br>
+      Um plano para os próximos dias.
+    </h2>
+    <p class="subheadline text-center mb-16">
+      Quando o pedido por celular aparece, você começa pequeno. Escolhe uma ideia rápida, sorteia uma missão ou avança para uma atividade completa quando houver mais tempo.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="surface-card bg-white">
+        <div class="w-12 h-12 bg-[var(--color-accent-soft)] rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-4 text-[var(--color-text)]">SOS agora</h3>
+        <p class="body-text text-[var(--color-muted)] mb-6">
+          Para dias corridos, momentos de tédio e pedidos insistentes por celular. Use ideias rápidas de 5 a 15 minutos, escolhidas pelo momento da criança.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">5–15 min</span>
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">Sem complicar</span>
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">Pelo momento da criança</span>
+        </div>
+      </div>
+
+      <div class="surface-card bg-white">
+        <div class="w-12 h-12 bg-[var(--color-confirm-soft)] rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-[var(--color-confirm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold mb-4 text-[var(--color-text)]">Plano depois</h3>
+        <p class="body-text text-[var(--color-muted)] mb-6">
+          Para quando a família tem mais tempo. Use cartões, calendário e missões completas para criar ritual, conquista e memória fora das telas.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">30 missões</span>
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">Cartões</span>
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">Calendário</span>
+          <span class="px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">Certificados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 4 — TRÊS PORTAS
+  Função: mostrar como começar pelo momento da criança.
+========================================================= -->
+<section class="section-shell bg-white">
+  <div class="content-container mx-auto px-6">
+    <p class="eyebrow text-center mb-4">COMECE PELO MOMENTO</p>
+    <h2 class="section-title text-center mb-6">
+      Escolha uma porta.<br>
+      Comece sem travar.
+    </h2>
+    <p class="subheadline text-center mb-16">
+      Quando a criança pedir tela, você não precisa abrir o kit inteiro. Escolha entre uma missão sem material, uma atividade de pouca bagunça ou uma experiência de efeito uau.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="surface-card border-t-4 border-t-[var(--color-border)]">
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Sem material</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Para quando você está sem mesa pronta, sem energia ou sem tempo.
+        </p>
+        <p class="text-sm text-[var(--color-muted)] mb-4">
+          Exemplos: Mímica de animais, Língua inventada, Estátua de museu, Chão de gelo, Entrevista imaginária.
+        </p>
+        <span class="inline-block px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">5–10 min · Zero preparo</span>
+      </div>
+
+      <div class="surface-card border-t-4 border-t-[var(--color-accent)]">
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Pouca bagunça</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Para quando dá para usar papel, lápis ou objetos simples da casa.
+        </p>
+        <p class="text-sm text-[var(--color-muted)] mb-4">
+          Exemplos: Desenho de olhos fechados, Complete o rabisco, Caça às cores, Torre de copos, Código secreto.
+        </p>
+        <span class="inline-block px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">10–20 min · Material simples</span>
+      </div>
+
+      <div class="surface-card border-t-4 border-t-[var(--color-confirm)]">
+        <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Efeito uau</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Para quando você quer surpreender a criança e transformar a tarde.
+        </p>
+        <p class="text-sm text-[var(--color-muted)] mb-4">
+          Exemplos: Vulcão borbulhante, Arco-íris no copo, Balão foguete, Cores dançantes, Bolhas gigantes.
+        </p>
+        <span class="inline-block px-3 py-1 bg-[var(--color-offwhite)] rounded-full text-xs font-medium text-[var(--color-muted)]">20–40 min · Descoberta real</span>
+      </div>
+    </div>
+
+    <p class="text-center text-lg text-[var(--color-muted)]">
+      A criança não precisa de uma explicação longa. Ela precisa de um convite simples para começar.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 5 — MÉTODO EFM
+  Função: mostrar Escolha, Faça, Marque.
+========================================================= -->
+<section id="metodo" class="section-shell bg-[var(--color-paper)]">
+  <div class="content-container mx-auto px-6">
+    <p class="eyebrow text-center mb-4">MÉTODO EFM</p>
+    <h2 class="section-title text-center mb-6">
+      A brincadeira começa simples.<br>
+      A memória vem do ritual.
+    </h2>
+    <p class="subheadline text-center mb-16">
+      O SOS Telas Kids usa um caminho fácil para sair do automático: escolha a missão certa, faça no ritmo possível e marque a conquista no final.
+    </p>
+
+    <div class="relative">
+      <!-- Conector sutil desktop -->
+      <div class="hidden md:block absolute top-8 left-[16%] right-[16%] h-px bg-[var(--color-border)]"></div>
+
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="relative">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm border border-[var(--color-border)] relative z-10">
+            <span class="text-2xl font-bold text-[var(--color-accent)]">01</span>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-3 text-[var(--color-text)]">Escolha</h3>
+          <p class="body-text text-[var(--color-muted)] text-center">
+            Escolha pelo momento. Agitada, entediada, criativa, querendo atenção ou perto de dormir. Você não precisa escolher a atividade perfeita. Só precisa escolher a próxima possível.
+          </p>
+        </div>
+
+        <div class="relative">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm border border-[var(--color-border)] relative z-10">
+            <span class="text-2xl font-bold text-[var(--color-accent)]">02</span>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-3 text-[var(--color-text)]">Faça</h3>
+          <p class="body-text text-[var(--color-muted)] text-center">
+            Faça no modo certo. Use uma ideia rápida, um cartão sorteado ou uma missão completa. Comece pequeno, acompanhe a criança e adapte ao tempo do dia.
+          </p>
+        </div>
+
+        <div class="relative">
+          <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 mx-auto shadow-sm border border-[var(--color-border)] relative z-10">
+            <span class="text-2xl font-bold text-[var(--color-confirm)]">03</span>
+          </div>
+          <h3 class="text-xl font-bold text-center mb-3 text-[var(--color-text)]">Marque</h3>
+          <p class="body-text text-[var(--color-muted)] text-center">
+            Marque a conquista. Calendário, registro, nota da missão ou certificado. O fechamento transforma a atividade em lembrança, não só em passatempo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-lg text-[var(--color-muted)] mt-12">
+      A criança não vive só a atividade. Ela vive o ritual de começar, fazer e celebrar.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 6 — EXEMPLOS REAIS DE MISSÕES
+  Função: dar tangibilidade ao produto.
+========================================================= -->
+<section id="missoes" class="section-shell bg-white">
+  <div class="content-container mx-auto px-6">
+    <p class="eyebrow text-center mb-4">MISSÕES REAIS</p>
+    <h2 class="section-title text-center mb-6">
+      Atividades simples.<br>
+      Sensação de descoberta real.
+    </h2>
+    <p class="subheadline text-center mb-16">
+      O kit mistura ciência, movimento, construção, imaginação e pequenas aventuras em família — com tempo, materiais e nível de bagunça claros para você escolher sem travar.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <!-- Missão 1 -->
+      <div class="surface-card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-2.5 py-1 bg-[var(--color-accent-soft)] text-[var(--color-accent)] text-xs font-semibold rounded-md">Ciência</span>
+          <div class="flex-1 h-px bg-[var(--color-border)]"></div>
+        </div>
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Vulcão Borbulhante</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Bicarbonato, vinagre e corante viram uma erupção caseira que prende a atenção da criança.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-3 border-t border-[var(--color-border)]">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+            20–30 min
+          </span>
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            Média
+          </span>
+        </div>
+      </div>
+
+      <!-- Missão 2 -->
+      <div class="surface-card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-2.5 py-1 bg-[var(--color-confirm-soft)] text-[var(--color-confirm)] text-xs font-semibold rounded-md">Movimento</span>
+          <div class="flex-1 h-px bg-[var(--color-border)]"></div>
+        </div>
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Balão Foguete</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Um balão, um canudo e um barbante mostram como o ar invisível pode gerar movimento.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-3 border-t border-[var(--color-border)]">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+            15–25 min
+          </span>
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Baixa
+          </span>
+        </div>
+      </div>
+
+      <!-- Missão 3 -->
+      <div class="surface-card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-2.5 py-1 bg-[var(--color-accent-soft)] text-[var(--color-accent)] text-xs font-semibold rounded-md">Construção</span>
+          <div class="flex-1 h-px bg-[var(--color-border)]"></div>
+        </div>
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Cidade de Papelão</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Caixas viram casas, ruas, pontes e histórias. A criança constrói um mundo com as próprias mãos.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-3 border-t border-[var(--color-border)]">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+            30–60 min
+          </span>
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            Média
+          </span>
+        </div>
+      </div>
+
+      <!-- Missão 4 -->
+      <div class="surface-card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-2.5 py-1 bg-[var(--color-confirm-soft)] text-[var(--color-confirm)] text-xs font-semibold rounded-md">Observação</span>
+          <div class="flex-1 h-px bg-[var(--color-border)]"></div>
+        </div>
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Caça às Cores</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          A criança escolhe uma cor e procura objetos pela casa, transformando o ambiente em jogo.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-3 border-t border-[var(--color-border)]">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+            15–25 min
+          </span>
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Baixa
+          </span>
+        </div>
+      </div>
+
+      <!-- Missão 5 -->
+      <div class="surface-card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-2.5 py-1 bg-[var(--color-accent-soft)] text-[var(--color-accent)] text-xs font-semibold rounded-md">Ciência</span>
+          <div class="flex-1 h-px bg-[var(--color-border)]"></div>
+        </div>
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Arco-Íris no Copo</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Água, açúcar e corantes criam camadas coloridas para mostrar que líquidos podem se comportar de formas diferentes.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-3 border-t border-[var(--color-border)]">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+            25–35 min
+          </span>
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            Baixa/média
+          </span>
+        </div>
+      </div>
+
+      <!-- Missão 6 -->
+      <div class="surface-card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="px-2.5 py-1 bg-[var(--color-confirm-soft)] text-[var(--color-confirm)] text-xs font-semibold rounded-md">Imaginação</span>
+          <div class="flex-1 h-px bg-[var(--color-border)]"></div>
+        </div>
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Mapa do Tesouro</h3>
+        <p class="body-text text-[var(--color-muted)] mb-4">
+          Pistas simples transformam a casa em aventura e fazem a criança seguir um caminho de descoberta.
+        </p>
+        <div class="flex items-center gap-3 text-xs text-[var(--color-muted)] pt-3 border-t border-[var(--color-border)]">
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-width="2" d="M12 6v6l4 2"/></svg>
+            20–35 min
+          </span>
+          <span class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Baixa
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-lg text-[var(--color-muted)]">
+      A ideia não é ocupar tempo por ocupar. É criar pequenos momentos que a criança lembra, repete e quer marcar como conquista.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 7 — O QUE VEM NO KIT
+  Função: mostrar os 8 módulos reais como sistema.
+========================================================= -->
+<section id="kit" class="section-shell bg-[var(--color-offwhite)]">
+  <div class="content-container mx-auto px-6">
+    <p class="eyebrow text-center mb-4">O KIT COMPLETO</p>
+    <h2 class="section-title text-center mb-6">
+      Tudo organizado para você não começar do zero.
+    </h2>
+    <p class="subheadline text-center mb-16">
+      O SOS Telas Kids reúne entradas rápidas, ideias simples, cartões, calendário, guias e certificados para transformar a intenção de reduzir telas em uma próxima ação possível.
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <!-- Módulo 1 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">1</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Comece Aqui: SOS 5 Minutos</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Um guia rápido para escolher uma missão agora, mesmo nos dias corridos.
+        </p>
+      </div>
+
+      <!-- Módulo 2 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">2</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">SOS Telas — 100 Ideias Rápidas</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Ideias simples de 5 a 15 minutos, organizadas pelo momento da criança: agitação, tédio, criatividade, atenção, pré-sono e mais.
+        </p>
+      </div>
+
+      <!-- Módulo 3 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">3</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Cartões de Missão para Sortear</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Cartões para imprimir, recortar, escolher ou sortear. A criança participa da decisão antes mesmo da missão começar.
+        </p>
+      </div>
+
+      <!-- Módulo 4 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">4</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Calendário das 30 Missões</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Um calendário para marcar conquistas, acompanhar a jornada e deixar a criança ver o próprio avanço.
+        </p>
+      </div>
+
+      <!-- Módulo 5 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">5</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Guia Completo das 30 Missões</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Missões completas com materiais, preparo, passo a passo, variações, segurança, pergunta de curiosidade e registro final.
+        </p>
+      </div>
+
+      <!-- Módulo 6 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">6</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Guia de Tranquilidade dos Pais</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Orientações simples para adaptar as atividades à idade, maturidade, energia do dia e contexto da casa.
+        </p>
+      </div>
+
+      <!-- Módulo 7 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">7</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Materiais e Caixa Anti-Telas</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Uma lista econômica para montar uma caixa simples com materiais que a família provavelmente já tem em casa.
+        </p>
+      </div>
+
+      <!-- Módulo 8 -->
+      <div class="surface-card bg-white">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-8 h-8 rounded-full bg-[var(--color-accent-soft)] flex items-center justify-center text-[var(--color-accent)] font-bold text-sm">8</span>
+          <h3 class="text-base font-bold text-[var(--color-text)]">Certificados de Pequeno Explorador</h3>
+        </div>
+        <p class="text-sm text-[var(--color-muted)]">
+          Certificados para marcar missão favorita, progresso em andamento e conclusão das 30 missões.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p class="text-lg text-[var(--color-muted)] mb-2">
+        Você não precisa usar tudo no primeiro dia. Comece pelo SOS, escolha uma missão possível e deixe o restante do kit trabalhar a favor da rotina.
+      </p>
+      <p class="text-sm text-[var(--color-muted)]">
+        Use no celular. Imprima apenas o que fizer sentido para sua rotina.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 8 — DOBRA DE DECISÃO / OFERTA
+  Função: converter com clareza e elegância.
+========================================================= -->
+<section id="oferta" class="section-shell bg-white">
+  <div class="offer-container mx-auto px-6">
+    <div class="offer-card bg-[var(--color-offwhite)] rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-[var(--color-border)]">
+      <div class="grid lg:grid-cols-12 gap-12">
+        <!-- Lado esquerdo: valor -->
+        <div class="lg:col-span-7">
+          <p class="eyebrow mb-4">DECISÃO SIMPLES</p>
+          <h2 class="section-title mb-6">
+            Por R$27, você não compra mais uma promessa.<br>
+            Você compra a próxima alternativa pronta.
+          </h2>
+          <p class="subheadline mb-8">
+            O SOS Telas Kids reúne ideias rápidas, cartões, calendário, missões completas e guias de apoio para você sair do improviso e começar hoje — sem precisar montar tudo do zero.
+          </p>
+
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-[var(--color-text)]">Tudo pronto para começar hoje.</h3>
+              <p class="body-text text-[var(--color-muted)] mb-4">
+                Um sistema digital simples para transformar a preocupação com telas em convites reais para brincar, descobrir e marcar pequenas conquistas fora delas.
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">SOS 5 Minutos</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">100 ideias rápidas</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">Cartões de missão</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">Calendário das 30 missões</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">Guia completo das missões</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">Guia de tranquilidade dos pais</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">Lista de materiais</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-[var(--color-confirm)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm text-[var(--color-text)]">Certificados</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado direito: compra -->
+        <div class="lg:col-span-5">
+          <div class="bg-white rounded-[2rem] p-8 shadow-lg border border-[var(--color-border)]">
+            <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Kit digital completo</h3>
+            <div class="mb-4">
+              <p class="text-5xl font-bold text-[var(--color-text)]">R$27</p>
+              <p class="text-sm text-[var(--color-muted)] mt-1">Pagamento único</p>
+            </div>
+            <p class="text-sm text-[var(--color-muted)] mb-6">
+              Acesso imediato após a compra. Use no celular ou imprima apenas o que fizer sentido para sua rotina.
+            </p>
+            
+            <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary w-full mb-4">
+              Quero começar hoje
+            </a>
+            
+            <div class="text-center">
+              <p class="text-xs text-[var(--color-muted)]">
+                Garantia de 7 dias · Compra segura · Produto digital
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-lg text-[var(--color-muted)] mt-12">
+        A próxima vez que a criança pedir celular, você não precisa improvisar. Você pode abrir o kit e escolher uma missão.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 9 — TRANQUILIDADE E PERGUNTAS SILENCIOSAS
+  Função: reduzir objeções práticas depois da oferta.
+========================================================= -->
+<section id="tranquilidade" class="section-shell bg-[var(--color-paper)]">
+  <div class="reading-width mx-auto px-6">
+    <p class="eyebrow text-center mb-4">SEM PESO EXTRA</p>
+    <h2 class="section-title text-center mb-6">
+      Não precisa virar uma nova obrigação.
+    </h2>
+    <p class="subheadline text-center mb-12">
+      O SOS Telas Kids foi pensado para ajudar no momento real: quando você quer oferecer uma alternativa melhor, mas não quer montar uma atividade complexa, comprar muitos materiais ou transformar a rotina da casa em um projeto perfeito.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="surface-card bg-white/70">
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Use aos poucos</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          Você não precisa fazer as 30 missões em sequência. Pode começar por uma ideia rápida, repetir as favoritas e avançar no ritmo da família.
+        </p>
+      </div>
+
+      <div class="surface-card bg-white/70">
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Imprima só o necessário</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          O kit é digital. Você pode usar no celular, tablet ou computador e imprimir apenas cartões, calendário ou certificados se fizer sentido.
+        </p>
+      </div>
+
+      <div class="surface-card bg-white/70">
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Adapte pela idade</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          A mesma missão pode funcionar de formas diferentes para uma criança de 4 e uma de 10 anos. O adulto ajusta tempo, ajuda e nível de autonomia.
+        </p>
+      </div>
+
+      <div class="surface-card bg-white/70">
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Supervisão adulta</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          As atividades devem acontecer com acompanhamento de um adulto, especialmente nas missões com água, tesoura, copos, pequenos objetos ou experiências simples.
+        </p>
+      </div>
+
+      <div class="surface-card bg-white/70">
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Materiais simples</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          A proposta é comprar pouco, reaproveitar muito e usar coisas comuns de casa: papel, copos, caixas, canetinhas, barbante, fita e objetos do dia a dia.
+        </p>
+      </div>
+
+      <div class="surface-card bg-white/70">
+        <h3 class="text-lg font-bold mb-2 text-[var(--color-text)]">Sem promessa de "tela zero"</h3>
+        <p class="body-text text-[var(--color-muted)]">
+          O objetivo não é demonizar o celular. É criar alternativas reais para que a tela não seja sempre a primeira resposta.
+        </p>
+      </div>
+    </div>
+
+    <p class="text-center text-lg text-[var(--color-muted)]">
+      A meta não é fazer tudo. É ter uma próxima alternativa possível.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 10 — SOBRE O CRIADOR
+  Função: humanizar sem inventar autoridade.
+========================================================= -->
+<section id="criador" class="section-shell bg-white">
+  <div class="content-container mx-auto px-6">
+    <div class="max-w-3xl mx-auto">
+      <p class="eyebrow text-center mb-4">POR TRÁS DO KIT</p>
+      <h2 class="section-title text-center mb-6">
+        Criado por quem também conhece essa cena de perto.
+      </h2>
+      <p class="subheadline text-center mb-8">
+        O SOS Telas Kids nasceu de uma preocupação real: ver o celular ocupar cada vez mais espaço na rotina das crianças — e perceber que, para muitos pais, o problema não é saber que a tela está demais. É não ter uma alternativa pronta na hora em que ela parece a saída mais fácil.
+      </p>
+
+      <blockquote class="bg-[var(--color-offwhite)] rounded-2xl p-8 my-8 border-l-4 border-[var(--color-accent)]">
+        <p class="text-lg text-[var(--color-text)] italic mb-4">
+          "Eu não sou o pai perfeito. Sou um pai que também já cedeu por cansaço, já tentou improvisar e já sentiu culpa depois. Criei o SOS Telas Kids para ajudar famílias a terem uma resposta mais simples, mais leve e mais possível quando o pedido pelo celular aparece."
+        </p>
+        <footer class="flex items-center gap-4">
+          <!-- Placeholder para foto do criador -->
+          <!-- 
+            Asset final: /assets/creator-photo.webp
+            Dimensões: 600x600px, foto natural
+          -->
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-accent-soft)] flex items-center justify-center text-white font-bold">
+            MC
+          </div>
+          <!-- 
+          <img 
+            src="/assets/creator-photo.webp" 
+            alt="Manoel Calaça Junior" 
+            class="w-12 h-12 rounded-full object-cover"
+            width="600"
+            height="600"
+          />
+          -->
+          <div>
+            <p class="font-bold text-[var(--color-text)]">Manoel Calaça Junior</p>
+            <p class="text-sm text-[var(--color-muted)]">Criador do SOS Telas Kids</p>
+          </div>
+        </footer>
+      </blockquote>
+
+      <p class="text-center text-sm text-[var(--color-muted)]">
+        Pai, empreendedor e criador de soluções digitais pensadas para facilitar decisões do dia a dia.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 11 — FAQ
+  Função: remover dúvidas finais.
+========================================================= -->
+<section id="faq" class="section-shell bg-[var(--color-offwhite)]">
+  <div class="faq-container mx-auto px-6">
+    <p class="eyebrow text-center mb-4">PERGUNTAS FINAIS</p>
+    <h2 class="section-title text-center mb-6">
+      Tudo claro antes de começar.
+    </h2>
+    <p class="subheadline text-center mb-12">
+      O SOS Telas Kids é simples de usar, mas é importante saber exatamente o que você está comprando — e o que ele não promete.
+    </p>
+
+    <div class="space-y-3">
+      <!-- Pergunta 1 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="true"
+          aria-controls="faq-content-1"
+        >
+          <span class="font-semibold text-[var(--color-text)]">É um produto físico ou digital?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-1" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 200px;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            É um kit digital. Após a compra, você recebe acesso aos materiais para usar no celular, tablet ou computador. Você pode imprimir apenas o que fizer sentido para sua rotina.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 2 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-2"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Preciso imprimir tudo?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-2" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Não. O kit foi pensado para funcionar de forma flexível. Você pode usar os guias na tela e imprimir somente cartões, calendário ou certificados, se quiser deixar a experiência mais visual para a criança.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 3 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-3"
+        >
+          <span class="font-semibold text-[var(--color-text)]">É só uma lista de brincadeiras?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-3" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Não. O kit reúne ideias rápidas, cartões para sortear, calendário, guia completo das missões, guia de tranquilidade dos pais, lista de materiais e certificados. A ideia é dar uma estrutura simples para começar agora e continuar depois.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 4 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-4"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Serve para crianças de quais idades?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-4" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            O kit foi pensado para crianças de 4 a 10 anos, sempre com adaptação do adulto conforme idade, maturidade, energia do dia e contexto da casa.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 5 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-5"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Precisa de supervisão adulta?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-5" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Sim. As atividades devem acontecer com acompanhamento de um adulto, especialmente nas missões com água, tesoura, copos, pequenos objetos, misturas ou experiências simples.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 6 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-6"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Isso elimina totalmente as telas?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-6" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Não é essa a promessa. O objetivo não é demonizar o celular nem criar uma regra de "tela zero". O objetivo é oferecer alternativas prontas para que a tela não seja sempre a primeira resposta.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 7 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-7"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Recebo o acesso na hora?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-7" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Sim. Após a confirmação da compra, o acesso ao kit digital é liberado para você começar.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 8 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-8"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Tem garantia?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-8" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Sim. Você tem 7 dias de garantia para avaliar o material com tranquilidade.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pergunta 9 -->
+      <div class="faq-item bg-white rounded-xl border border-[var(--color-border)] overflow-hidden">
+        <button 
+          class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-[var(--color-offwhite)] transition-colors"
+          aria-expanded="false"
+          aria-controls="faq-content-9"
+        >
+          <span class="font-semibold text-[var(--color-text)]">Posso usar com mais de uma criança?</span>
+          <svg class="w-5 h-5 text-[var(--color-muted)] flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="faq-content-9" 
+          class="faq-content px-6 overflow-hidden transition-all duration-300"
+          style="max-height: 0;"
+        >
+          <p class="pb-4 body-text text-[var(--color-muted)]">
+            Sim. O kit pode ser usado na rotina da família. Em casas com mais de uma criança, o adulto pode adaptar as missões por idade, maturidade e nível de autonomia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+  SEÇÃO 12 — CTA FINAL
+  Função: fechamento simples e inevitável.
+========================================================= -->
+<section class="section-shell bg-white">
+  <div class="reading-width mx-auto px-6 text-center">
+    <p class="eyebrow mb-4">COMECE HOJE</p>
+    <h2 class="section-title mb-6">
+      A próxima alternativa já pode estar pronta.
+    </h2>
+    <p class="subheadline mb-8">
+      Quando o celular parecer a saída mais fácil, você não precisa improvisar do zero. Abra o SOS Telas Kids, escolha uma missão possível e transforme alguns minutos em uma descoberta fora das telas.
+    </p>
+    
+    <a href="https://pay.hotmart.com/M105920942X" onclick="return handleCheckoutClick(this.href);" class="btn-primary inline-block mb-4">
+      Quero começar hoje
+    </a>
+    
+    <p class="text-sm text-[var(--color-muted)] mb-8">
+      Kit digital completo · R$27 · Acesso imediato · Garantia de 7 dias
+    </p>
+    
+    <p class="text-lg text-[var(--color-muted)]">
+      Menos improviso. Mais presença.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+  FOOTER
+  Função: fechamento legal, links e microaviso.
+========================================================= -->
+<footer class="bg-[var(--color-offwhite)] border-t border-[var(--color-border)] py-12">
+  <div class="content-container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-8 mb-8">
+      <div>
+        <p class="text-lg font-bold text-[var(--color-text)] mb-2">SOS Telas Kids</p>
+        <p class="text-sm text-[var(--color-muted)] max-w-md">
+          Um kit digital para ajudar famílias a criarem alternativas simples, possíveis e mais encantadoras fora das telas.
+        </p>
+      </div>
+      
+      <div class="flex flex-wrap gap-4 md:justify-end">
+        <a href="#programa" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Programa</a>
+        <a href="#metodo" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Método</a>
+        <a href="#oferta" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">Oferta</a>
+        <a href="#faq" class="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors">FAQ</a>
+        <!-- Links legais - substituir href pelos URLs reais quando disponíveis -->
+        <span class="text-sm text-[var(--color-muted)] cursor-not-allowed opacity-50" aria-disabled="true" title="Em breve">Termos de Uso</span>
+        <span class="text-sm text-[var(--color-muted)] cursor-not-allowed opacity-50" aria-disabled="true" title="Em breve">Política de Privacidade</span>
+      </div>
+    </div>
+    
+    <div class="pt-8 border-t border-[var(--color-border)] flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-xs text-[var(--color-muted)]">
+        © 2026 SOS Telas Kids. Todos os direitos reservados.
+      </p>
+      <p class="text-xs text-[var(--color-muted)]">
+        Produto digital. Atividades indicadas para uso com supervisão adulta.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ============================================
+  // FUNÇÃO DE CHECKOUT COM TRACKING
+  // ============================================
+  function handleCheckoutClick(url) {
+    try {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'ClickCheckout', {
+          product: 'SOS Telas Kids',
+          price: 27,
+          currency: 'BRL'
+        });
+      }
+    } catch (e) {}
+
+    setTimeout(function () {
+      window.location.href = url;
+    }, 300);
+
+    return false;
+  }
+
+  // ============================================
+  // TRACK VIEWCONTENT AO SCROLLAR PARA OFERTA
+  // ============================================
+  let viewContentTracked = false;
+  function trackViewContent() {
+    if (viewContentTracked) return;
+
+    const offerSection = document.querySelector('.offer-card');
+    if (offerSection) {
+      const rect = offerSection.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.7) {
+        viewContentTracked = true;
+        try {
+          if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent', {
+              content_name: 'SOS Telas Kids Offer',
+              value: 27,
+              currency: 'BRL'
+            });
+          }
+        } catch (e) {}
+      }
+    }
+  }
+
+  // ============================================
+  // NAV SOLIDIFICANDO AO SCROLL
+  // ============================================
+  const nav = document.getElementById('main-nav');
+  function handleScroll() {
+    if (window.scrollY > 50) {
+      nav.classList.add('nav-solid');
+    } else {
+      nav.classList.remove('nav-solid');
+    }
+    trackViewContent();
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // ============================================
+  // FAQ ACCORDION
+  // ============================================
+  document.querySelectorAll('.faq-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      const contentId = button.getAttribute('aria-controls');
+      const content = document.getElementById(contentId);
+
+      // Fechar todos os outros
+      document.querySelectorAll('.faq-toggle').forEach(otherButton => {
+        if (otherButton !== button) {
+          otherButton.setAttribute('aria-expanded', 'false');
+          const otherContentId = otherButton.getAttribute('aria-controls');
+          const otherContent = document.getElementById(otherContentId);
+          otherContent.style.maxHeight = '0';
+          otherContent.querySelector('svg').style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Alternar atual
+      button.setAttribute('aria-expanded', !expanded);
+      if (!expanded) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        button.querySelector('svg').style.transform = 'rotate(180deg)';
+      } else {
+        content.style.maxHeight = '0';
+        button.querySelector('svg').style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+
+  // ============================================
+  // SCROLL REVEAL SIMPLES
+  // ============================================
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.remove('opacity-0', 'translate-y-8');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.surface-card, .offer-card, .faq-item').forEach(el => {
+    el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700');
+    observer.observe(el);
+  });
+
+  // ============================================
+  // SUPORTE A PREFERS-REDUCED-MOTION
+  // ============================================
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('*').forEach(el => {
+      el.style.transition = 'none';
+      el.style.animation = 'none';
+    });
+  }
+</script>
+</body>
+</html>

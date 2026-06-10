@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   VARIAVEIS DE CORES - PALETA FINAL
+   O laranja vende. O verde confirma. O resto respira.
+========================================================= */
+:root {
+  --color-white: #FFFFFF;
+  --color-offwhite: #F5F5F7;
+  --color-paper: #FBF8F1;
+  --color-text: #1D1D1F;
+  --color-muted: #6E6E73;
+  --color-border: #E8E8ED;
+  --color-accent: #EFA12A;
+  --color-confirm: #137A6A;
+  --color-accent-soft: #FFF3DC;
+  --color-confirm-soft: #E8F4F1;
+  --color-surface-warm: #FBF8F1;
+}
+
+/* =========================================================
+   TIPOGRAFIA - INTER
+========================================================= */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   SISTEMA DE LARGURA - CONTAINERS
+========================================================= */
+@layer components {
+  /* Hero/showcase: 1440px */
+  .hero-container {
+    @apply max-w-[1440px] mx-auto;
+  }
+
+  /* Leitura padrão: 1120px */
+  .content-container {
+    @apply max-w-[1120px] mx-auto;
+  }
+
+  /* Oferta: 1280px */
+  .offer-container {
+    @apply max-w-[1280px] mx-auto;
+  }
+
+  /* FAQ: 920px */
+  .faq-container {
+    @apply max-w-[920px] mx-auto;
+  }
+
+  /* Textos longos: 720px */
+  .reading-width {
+    @apply max-w-[720px] mx-auto;
+  }
+
+  /* Shell de seção com padding responsivo */
+  .section-shell {
+    @apply py-24 md:py-32 px-6;
+  }
+
+  /* Eyebrow label */
+  .eyebrow {
+    @apply text-xs font-semibold tracking-widest uppercase text-[var(--color-muted)] mb-4;
+  }
+
+  /* Hero display desktop: 72-80px, mobile: 44-52px */
+  .hero-display {
+    @apply text-[44px] md:text-[72px] leading-[1.02] md:leading-[0.95] font-extrabold tracking-tight;
+    letter-spacing: -0.055em;
+  }
+
+  /* Section title desktop: 44-56px, mobile: 32-38px */
+  .section-title {
+    @apply text-[32px] md:text-[44px] leading-[1.12] md:leading-[1.05] font-bold tracking-tight;
+  }
+
+  /* Subheadline desktop: 20-24px, mobile: 18-20px */
+  .subheadline {
+    @apply text-[18px] md:text-[20px] leading-[1.55] text-[var(--color-muted)];
+  }
+
+  /* Body text: 16-18px */
+  .body-text {
+    @apply text-[16px] md:text-[17px] leading-[1.65];
+  }
+
+  /* Botão primário - laranja com texto escuro para melhor contraste */
+  .btn-primary {
+    @apply inline-block bg-[var(--color-accent)] text-[#1D1D1F] font-bold text-[16px] md:text-[17px] 
+           px-8 py-4 rounded-full shadow-lg
+           transition-all duration-200 ease-out
+           hover:bg-[#E8951A] hover:shadow-xl hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2;
+  }
+
+  /* Botão secundário */
+  .btn-secondary {
+    @apply inline-block bg-white text-[var(--color-text)] font-semibold text-[16px] md:text-[17px]
+           px-8 py-4 rounded-full border border-[var(--color-border)] shadow-sm
+           transition-all duration-200 ease-out
+           hover:bg-[var(--color-offwhite)] hover:border-[var(--color-muted)]
+           active:bg-[var(--color-offwhite)]
+           focus:outline-none focus:ring-2 focus:ring-[var(--color-muted)] focus:ring-offset-2;
+  }
+
+  /* Card de superfície */
+  .surface-card {
+    @apply bg-white rounded-2xl p-6 md:p-8 
+           border border-[var(--color-border)] 
+           shadow-sm hover:shadow-md 
+           transition-shadow duration-300;
+  }
+
+  /* Card de oferta premium */
+  .offer-card {
+    @apply bg-white rounded-[2.5rem] p-8 md:p-12 
+           border border-[var(--color-border)] 
+           shadow-xl;
+  }
+
+  /* Item do FAQ */
+  .faq-item {
+    @apply bg-white rounded-xl border border-[var(--color-border)] overflow-hidden;
+  }
+
+  /* Navegação sólida ao scroll */
+  .nav-solid {
+    @apply bg-white/95 backdrop-blur-md shadow-sm py-3;
+  }
+
+  /* Placeholder do objeto-herói */
+  .hero-object-frame {
+    @apply relative;
+  }
+
+  .hero-object-image {
+    @apply w-full h-auto drop-shadow-2xl;
+  }
+
+  .hero-object-placeholder {
+    @apply w-full aspect-[16/10] bg-gradient-to-br from-[var(--color-accent-soft)] via-[var(--color-paper)] to-[var(--color-confirm-soft)] 
+           rounded-[2rem] flex items-center justify-center border border-[var(--color-border)] shadow-2xl;
+  }
+
+  /* Conteúdo do FAQ */
+  .faq-content {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Safe area para mobile (notch/home indicator) */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+}
+
+/* =========================================================
+   SCROLL MARGIN PARA ANCORAS
+   Garante que seções não fiquem escondidas pela nav fixa
+========================================================= */
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   Respeita preferências de acessibilidade do usuário
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   FOCO VISÍVEL PARA ACESSIBILIDADE
+========================================================= */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Remove outline padrão quando não é via teclado */
+:focus:not(:focus-visible) {
+  outline: none;
+}

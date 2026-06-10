@@ -1,5 +1,11 @@
-.DS_Store
-.env
+```
+# Compressed archives
+*.tar.gz
+
+# Dependencies
 node_modules/
-outputs/
-*.log
+
+# Build outputs
+dist/
+build/
+```
