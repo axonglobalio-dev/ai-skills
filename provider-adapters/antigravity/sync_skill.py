@@ -32,19 +32,46 @@ def compute_sha256(filepath: str) -> str:
             hasher.update(chunk)
     return hasher.hexdigest()
 
-def get_git_commit(repo_path: str) -> str:
-    """Get the current git commit hash of the canonical repository."""
+def get_git_provenance(repo_path: str, skill_name: Optional[str] = None) -> Tuple[str, str]:
+    """
+    Get (canonical_skill_commit, source_repository_commit).
+    canonical_skill_commit: last commit modifying the specific skill directory.
+    source_repository_commit: HEAD commit of the source repository.
+    """
+    repo_commit = "UNKNOWN"
+    skill_commit = "UNKNOWN"
     try:
-        res = subprocess.run(
+        res_repo = subprocess.run(
             ["git", "rev-parse", "HEAD"],
             cwd=repo_path,
             capture_output=True,
             text=True,
             check=True
         )
-        return res.stdout.strip()
+        repo_commit = res_repo.stdout.strip()
     except Exception:
-        return "UNKNOWN"
+        pass
+
+    if skill_name:
+        try:
+            res_skill = subprocess.run(
+                ["git", "log", "-1", "--format=%H", "--", skill_name],
+                cwd=repo_path,
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            out = res_skill.stdout.strip()
+            if out:
+                skill_commit = out
+            else:
+                skill_commit = repo_commit
+        except Exception:
+            skill_commit = repo_commit
+    else:
+        skill_commit = repo_commit
+
+    return skill_commit, repo_commit
 
 def parse_frontmatter(skill_md_path: str) -> Dict[str, str]:
     """Extract basic YAML frontmatter from SKILL.md without external dependencies."""
@@ -99,7 +126,6 @@ def scan_source_files(source_dir: str) -> Dict[str, str]:
     """Scan all canonical source files and compute relative path -> sha256 map."""
     file_hashes = {}
     for root, dirs, files in os.walk(source_dir):
-        # Skip git or temporary hidden directories
         dirs[:] = [d for d in dirs if not d.startswith(".") and d != "__pycache__"]
         for file in sorted(files):
             if file.startswith(".") or file == ".DS_Store" or file.endswith(".pyc"):
@@ -189,7 +215,8 @@ def verify_target_drift(canonical_root: str, target_root: str, skill_name: str) 
         
     report["status"] = "IN_SYNC"
     report["details"]["file_count"] = len(source_hashes)
-    report["details"]["canonical_git_commit"] = manifest_data.get("source_git_commit")
+    report["details"]["canonical_skill_commit"] = manifest_data.get("canonical_skill_commit", manifest_data.get("source_git_commit"))
+    report["details"]["source_repository_commit"] = manifest_data.get("source_repository_commit", manifest_data.get("source_git_commit"))
     return "IN_SYNC", report
 
 def sync_skill(canonical_root: str, target_root: str, skill_name: str, force: bool = False) -> Tuple[bool, Dict[str, Any]]:
@@ -210,7 +237,7 @@ def sync_skill(canonical_root: str, target_root: str, skill_name: str, force: bo
         return False, {"error": f"Invalid SKILL.md frontmatter: {e}", "status": "INVALID_SOURCE"}
         
     source_hashes = scan_source_files(source_dir)
-    git_commit = get_git_commit(canonical_root)
+    canonical_commit, repo_commit = get_git_provenance(canonical_root, skill_name)
     
     os.makedirs(target_root, exist_ok=True)
     
@@ -228,13 +255,15 @@ def sync_skill(canonical_root: str, target_root: str, skill_name: str, force: bo
             if staged_hash != src_hash:
                 raise ValueError(f"Staging hash verification failed for {rel_path}")
                 
-        # Generate mirror manifest
+        # Generate mirror manifest with explicit dual provenance
         manifest_data = {
             "schema_version": 1,
             "provider": "antigravity",
             "skill": skill_name,
             "source_authority": os.path.abspath(source_dir),
-            "source_git_commit": git_commit,
+            "canonical_skill_commit": canonical_commit,
+            "source_repository_commit": repo_commit,
+            "source_git_commit": canonical_commit,
             "canonical_skill_version": "v1.0.0",
             "generated": True,
             "do_not_edit_notice": "DO NOT EDIT GENERATED ANTIGRAVITY MIRROR. Canonical edits belong in ~/.ai-skills/",
@@ -254,7 +283,6 @@ def sync_skill(canonical_root: str, target_root: str, skill_name: str, force: bo
         # Handle existing target
         if os.path.islink(target_dir):
             target_link_dest = os.readlink(target_dir)
-            # Verify symlink points to canonical source before removing
             if not force and os.path.abspath(target_link_dest) != os.path.abspath(source_dir):
                 raise ValueError(f"Target symlink points to unexpected location: {target_link_dest}")
             os.unlink(target_dir)
@@ -285,7 +313,8 @@ def sync_skill(canonical_root: str, target_root: str, skill_name: str, force: bo
             "status": "SYNC_SUCCESSFUL",
             "skill": skill_name,
             "target_path": target_dir,
-            "canonical_commit": git_commit,
+            "canonical_skill_commit": canonical_commit,
+            "source_repository_commit": repo_commit,
             "file_count": len(source_hashes),
             "files": list(source_hashes.keys())
         }
@@ -320,8 +349,10 @@ def main():
             print(json.dumps(result, indent=2))
         else:
             if success:
-                print(f"SUCCESS: Mirrored {args.skill} to {result.get('target_path')} (Commit: {result.get('canonical_commit')})")
-                print(f"Files ({result.get('file_count')}): {result.get('files')}")
+                print(f"SUCCESS: Mirrored {args.skill} to {result.get('target_path')}")
+                print(f"  Canonical Skill Commit: {result.get('canonical_skill_commit')}")
+                print(f"  Source Repo HEAD Commit: {result.get('source_repository_commit')}")
+                print(f"  Files ({result.get('file_count')}): {result.get('files')}")
             else:
                 print(f"FAILED: {result.get('error')}")
         sys.exit(0 if success else 1)

@@ -94,6 +94,8 @@ class TestAntigravityAdapter(unittest.TestCase):
 
         self.assertEqual(manifest["skill"], self.skill_name)
         self.assertEqual(manifest["provider"], "antigravity")
+        self.assertIn("canonical_skill_commit", manifest)
+        self.assertIn("source_repository_commit", manifest)
         self.assertTrue(manifest["generated"])
 
         for rel_path, expected_hash in manifest["files"].items():
